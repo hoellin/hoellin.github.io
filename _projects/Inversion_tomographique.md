@@ -73,7 +73,17 @@ $$
 
 Soit une droite L définie par des coordonnées polaires $$(\rho, \theta)$$ où $$\rho\in]-\infty,\infty[$$ est sa distance algébrique à l'origine, et $$\theta\in[0,\pi[$$ est l'angle qu'elle fait avec l'axe des abscisses. On obtient une expression analytique de l'intégrale en donnant une paramétrisation de la droite L :
 
-Si $$\textbf x\in L$$, alors $$\textbf x=\begin{pmatrix}\rho\cos(\theta)-s\sin(\theta)\\ \rho\sin(\theta)+s\cos(\theta)\end{pmatrix}\quad$$ en notant $$s$$ la distance algébrique entre $$\textbf x$$ et le point $$\begin{pmatrix}\rho\cos(\theta)\\ \rho\sin(\theta)\end{pmatrix}$$. S'ensuit la paramétrisation de la droite L : $$L=\{\pmb\gamma(s)\;|\; s\in\mathbb R\}$$ avec $$\pmb\gamma(s)=\begin{pmatrix}\rho\cos(\theta)-s\sin(\theta)\\ \rho\sin(\theta)+s\cos(\theta)\end{pmatrix}$$.
+Si $$\textbf x\in L$$, alors
+
+$$
+\textbf x=\begin{pmatrix}\rho\cos(\theta)-s\sin(\theta)\\ \rho\sin(\theta)+s\cos(\theta)\end{pmatrix}\quad
+$$
+
+en notant $$s$$ la distance algébrique entre $$\textbf x$$ et le point $$\begin{pmatrix}\rho\cos(\theta)\\ \rho\sin(\theta)\end{pmatrix}$$. S'ensuit la paramétrisation de la droite L :
+
+$$
+L=\{\pmb\gamma(s)\;|\; s\in\mathbb R\}$$ avec $$\pmb\gamma(s)=\begin{pmatrix}\rho\cos(\theta)-s\sin(\theta)\\ \rho\sin(\theta)+s\cos(\theta)\end{pmatrix}
+$$
 
 On a donc :
 
@@ -658,9 +668,19 @@ Cette méthode nécessite d'effectuer autant de transformées de Fourier 1D qu'i
 
 **Rétroprojection filtrée**
 
-On introduit le changement de variable $$\phi^{-1}:\begin{pmatrix}u\\v\end{pmatrix}\mapsto\begin{pmatrix}\omega \\ \theta\end{pmatrix}=\begin{pmatrix}\sqrt{u^2+v^2}\\ \arctan(\dfrac u v)\end{pmatrix}\quad$$ ie $$\phi\begin{pmatrix}\omega \\ \theta\end{pmatrix} \mapsto \begin{pmatrix}u\\v\end{pmatrix} = \begin{pmatrix}\omega\sin(\theta) \\ \omega\cos(\theta)\end{pmatrix}$$.
+On introduit le changement de variable
 
-On a $$\left|\det\left(J_\phi\begin{pmatrix}\omega \\ \theta\end{pmatrix}\right)\right| = |\omega|$$ donc :
+$$
+\phi^{-1}:\begin{pmatrix}u\\v\end{pmatrix}\mapsto\begin{pmatrix}\omega \\ \theta\end{pmatrix}=\begin{pmatrix}\sqrt{u^2+v^2}\\ \arctan(\dfrac u v)\end{pmatrix}\quad
+$$ ie
+
+$$
+\phi\begin{pmatrix}\omega \\ \theta\end{pmatrix} \mapsto \begin{pmatrix}u\\v\end{pmatrix} = \begin{pmatrix}\omega\sin(\theta) \\ \omega\cos(\theta)\end{pmatrix}
+$$
+
+On a $$
+\left|\det\left(J_\phi\begin{pmatrix}\omega \\ \theta\end{pmatrix}\right)\right| = |\omega|
+$$ donc :
 
 $$
 \begin{align}
@@ -676,7 +696,11 @@ $$
 f(\mathbf x) = \int_0^\pi \widetilde{\mathcal R_\theta f}(x\cos\theta+y\sin\theta)\,d\theta
 $$
 
-On comprend que $$f$$ n'est pas reconstruite directement en intégrant ses projections (le cas échéant, on reconstruirait une version floue de f), mais à partir des $$\widetilde{\mathcal R_\theta f}$$, qui sont obtenus en multipliant les projections $$\mathcal R_\theta f$$ par un filtre rampe $$\omega\mapsto|\omega|$$ dans le domaine fréquentiel. Puisqu'une multiplication dans le domaine fréquentiel correspond à une convolution dans le domaine spatial, on a aussi :
+On comprend que $$f$$ n'est pas reconstruite directement en intégrant ses projections (le cas échéant, on reconstruirait une version floue de f), mais à partir des $$\widetilde{\mathcal R_\theta f}$$, qui sont obtenus en multipliant les projections $$\mathcal R_\theta f$$ par un filtre rampe 
+
+$$
+\omega\mapsto|\omega|
+$$ dans le domaine fréquentiel. Puisqu'une multiplication dans le domaine fréquentiel correspond à une convolution dans le domaine spatial, on a aussi :
 
 $$
 \begin{align}
