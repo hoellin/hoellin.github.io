@@ -10,10 +10,6 @@ Based on <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme for
 ### Installation
 
 
----
-
-#### Local Setup (Standard)
-
 Assuming [Ruby](https://www.ruby-lang.org/en/downloads/) and [Bundler](https://bundler.io/) are installed (*hint: for ease of managing ruby gems, consider using [rbenv](https://github.com/rbenv/rbenv)*), one can start editing these GitHub Pages after doing the following:
 
 ```bash
@@ -25,18 +21,10 @@ $ bundle exec jekyll serve
 
 Simply commiy and push the changes, and wait for the site to be automatically deployed.
 
----
-
-#### Deployment
-
-
-<details><summary>(click to expand) <strong>Manual deployment to GitHub Pages:</strong></summary>
+### Deployment
 
 If you need to manually re-deploy your website to GitHub pages, run the deploy script from the root directory of your repository:
 ```bash
 $ ./bin/deploy
 ```
 uses the `master` branch for the source code and deploys the webpage to `gh-pages`.
-
-</details>
-
