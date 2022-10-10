@@ -21,7 +21,7 @@ $ bundle exec jekyll serve
 
 Simply commiy and push the changes, and wait for the site to be automatically deployed.
 
-### Deployment
+### Deployment./bin/deploy
 
 If you need to manually re-deploy your website to GitHub pages, run the deploy script from the root directory of your repository:
 ```bash
