@@ -3,7 +3,7 @@ layout: page
 title: Image registration
 description: M1-practical on image registration (in French).
 img: assets/img/projects_preview/im_registration.png
-importance: 1
+importance: 2
 category: student-projects
 ---
 
