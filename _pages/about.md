@@ -16,10 +16,12 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Master Student in Mathematics, hybrid AI and physics. I am currently an intern at ONERA - The French Aerospace Lab, working on the development of new confinement methods for the simulation of turbulent flows.
+Master Student in Mathematics, hybrid AI and physics. I am currently an intern at ONERA - The French Aerospace Lab, working on the development of new high-order confinement methods for the simulation of turbulent flows.
 
-Looking for a PhD position in between cosmology (DM, DE, gravitational waves, structure and galaxy formation, stellar feedback, etc) and one of the following subjects:
-- mathematical physics
+Looking for a PhD position in one or several of the following subjects:
 - optimal control, optimization, differential equations
-- image processing, machine learning (physics-informed neural networks, deep learning, Bayesian inference, etc), reinforcement learning, stochastic processes
+- image processing, machine learning, reinforcement learning, stochastic processes
+- cosmology (DM, DE, gravitational waves, structure and galaxy formation, etc), simulation for astrophysics or particle physics
+- quantum information, quantum computing, quantum physics
+- fluid dynamics, turbulence, plasma physics, combustion, etc
 
