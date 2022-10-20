@@ -9,12 +9,12 @@
 - title: Experience
   type: time_table
   contents:
-    - title: Master thesis
+    - title: Master thesis in Fluid Dynamics
       institution: ONERA - The French Aerospace Lab, Châtillon, France
       year: 2022 - 2023 (1 year)
       description:
         - Trainee in the NFLU (Digital methods for fluid mechanics) and MSAT (Advanced turbulence modeling and simulation) teams.
-        - I develop numerical methods to better preserve vorticity in turbulent flows simulation.
+        - I develop high order methods to better preserve vorticity in turbulent flows simulation.
         #- Advisor - <a href="mailto:jean-baptiste.chapelier@onera.fr" target="_blank">Jean-Baptiste Chapelier</a>
 
     - title: Research Trainee
@@ -43,7 +43,7 @@
       institution: IRAP - Institut de Recherche en Astrophysique et Planétologie, Toulouse, France
       year: 2020 (4 months)
       description:
-        - French laboratory of space astrophysics operated by CNRS and Université Paul Sabatier.
+        # - French laboratory of space astrophysics operated by CNRS and Université Paul Sabatier.
         - I studied kinetic scale plasma turbulence in the solar wind, and analysed the commissioning data of the Solar Orbiter SWA-PAS instrument to look up for secondary beams.
 
     - title: Artificial Intelligence Trainee
@@ -69,17 +69,17 @@
         - Double Master's degree in Mathematics and Hybrid AI with ENSEEIHT
         - title: This is a transversal curriculum built around 3 main axes
           contents:
-            - numerical mathematical modeling
+            - numerical mathematical modeling)
             - statistical mathematical modeling
             - artificial intelligence
         - title: Main courses undertaken (M1 and M2)
           contents:
-            - optimization (smooth and non-smooth), stochastic optimization, variational and sequential data assimilation, optimal control
+            - optimization, stochastic optimization, data assimilation, optimal control
             - signal and wavelets, advanced statistics, machine learning
-              (clustering, bagging, boosting, kernel methods, CNN, recurrent neural networks, data assimilation networks, generative neural networks, reinforcement learning)
+              (clustering, kernel methods, CNN, recurrent networks, data assimilation networks, generative neural networks, reinforcement learning)
             - PDE, finite elements and volumes, model coupling
-            - high performance computing, resolution of large linear systems, parallel programming, graphs, functional programming
-    - title: MS in Computer Sciences and AI
+            - high performance computing, resolution of large linear systems, parallel programming
+    - title: MS in Artificial Intelligence
       institution: ENSEEIHT, Toulouse, France
       year: 2022
       description:
@@ -104,7 +104,6 @@
       institution: Lycée Charles-Emiles Freppel, Obernai, France
       year: 2016
       description:
-        - Specialization in Mathematics
         - With highest honors
 
 - title: Projects
@@ -120,36 +119,32 @@
 - title: Student Projects
   type: time_table
   contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">Molecular Energy Prediction</a>
+    - title: Molecular Energy Prediction
       year: early 2022
       description: Machine learning -based prediction of the dissociation energy of molecules based on their geometries,
                     using several approaches (augmented / randomized Coulomb matrices, wavelett scattering transform)
-    - title: <a href="https://github.com/alshedivat/al-folio">Data Assimilation Networks</a>
+    - title: <a href="https://hoellin.github.io/projects/DAN/">Data Assimilation Networks</a>
       year: early 2022
       description: Data Assimilation Networks (DAN) to learn Observed Dynamical Systems
-    - title: <a href="https://github.com/alshedivat/al-folio">Tomographic Inversion</a>
+    - title: <a href="https://hoellin.github.io/projects/Inversion_tomographique/">Tomographic Inversion</a>
       year: early 2021
       description: Tomographic inversion for the reconstruction of images in the context of medical imagery.
                    I explored both analytical methods (direct filtered retroprojection) and algebraic methods
                    (ART, SIRT, SART) for the inversion of the sinograms.
-    - title: <a href="https://github.com/alshedivat/al-folio">Semi-supervised learning</a>
-      year: early 2022
-      description: Semi-supervised learning to predict correct label of images based on a training set
-                    with 5% annotated images and 95% unannotated images
 
 - title: Academic Interests
   type: nested_list
   contents:
     - title: Mathematics
       items:
-        - optimal control theory, determinist and stochastic optimization, data assimilation
+        - optimal control theory, data assimilation
         - partial differential equations
         - machine learning (physics-informed neural networks, Bayesian inference, data assimilation networks, etc), reinforcement learning
     - title: Physics
       items: 
         - Cosmology (DM and DE, gravitational waves, structure and galaxy formation, stellar feedback, simulations, etc)
         - Plasma physics (turbulence, kinetic theory, etc)
-        - Statistical physics
+        - Statistical physics, quantum mechanics
 
 - title: Other Interests
   type: list
