@@ -20,6 +20,6 @@ Master Student in Mathematics, hybrid AI and physics. I am currently an intern a
 
 Looking for a PhD position in one or several of the following subjects:
 - optimal control, data assimilation, differential equations
-- image processing, machine learning, stochastic processes
+- signal processing, machine learning, stochastic processes
 - cosmology (DM, DE, gravitational lensing, structure and galaxy formation, etc), simulation for astrophysics or particle physics
 - fluid dynamics, turbulence, plasma physics, etc

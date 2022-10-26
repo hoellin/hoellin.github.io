@@ -14,7 +14,7 @@
       year: 2022 - 2023 (1 year)
       description:
         - Trainee in the NFLU (Digital methods for fluid mechanics) and MSAT (Advanced turbulence modeling and simulation) teams.
-        - I develop high order methods to better preserve vorticity in turbulent flows simulation.
+        - I develop and study new high order methods to better preserve vortical structures in numerical simulations of turbulent flows.
         #- Advisor - <a href="mailto:jean-baptiste.chapelier@onera.fr" target="_blank">Jean-Baptiste Chapelier</a>
 
     - title: Research Trainee
@@ -22,7 +22,7 @@
       year: 2021 (2 months)
       description:
         - Summer traineeship in Guigo's Lab.
-        - I implemented a scalable pipeline for automatic identification of IR-QTL (Intron Retention Quantitative Trait Loci)
+        - I implemented a scalable pipeline (for demonstration purposes) for automatic identification of IR-QTL (Intron Retention Quantitative Trait Loci)
           in Nextflow, based on Surrogate Variable Analysis
 
     - title: Junior Bioinformatics Scientist
@@ -69,13 +69,13 @@
         - Double Master's degree in Mathematics and Hybrid AI with ENSEEIHT
         - title: This is a transversal curriculum built around 3 main axes
           contents:
-            - numerical mathematical modeling)
+            - numerical mathematical modeling
             - statistical mathematical modeling
             - artificial intelligence
         - title: Main courses undertaken (M1 and M2)
           contents:
             - optimization, stochastic optimization, data assimilation, optimal control
-            - signal and wavelets, advanced statistics, machine learning
+            - signal and wavelets, advanced statistics, stochastic processes, machine learning
               (clustering, kernel methods, CNN, recurrent networks, data assimilation networks, generative neural networks, reinforcement learning)
             - PDE, finite elements and volumes, model coupling
             - high performance computing, resolution of large linear systems, parallel programming
@@ -93,18 +93,19 @@
             - I was admitted to the Magistère de Physique Fondamentale d’Orsay, where I studied for one semester 
               (analytical mechanics, quantum mechanics, electrodynamics, special relativity, general relativity, cosmology, astrophysics, statistical mechanics, complex analysis)
             - I completed my gap year with a bibliographic traineeship about plasma physics at
-              IRAP - Institut de recherche en astrophysique et planétologie.
+              IRAP - Institut de recherche en astrophysique et planétologie, and a traineeship about the convergence of series of quantum non-demolition measurements at IMT Toulouse.
     - title: BS in Mathematics and Basic Sciences
       institution: INSA Toulouse, France
       year: 2019
       description:
         - First 3 years of a 5-year course leading to a Diplôme d’ingénieur
          (Master of Science in French Grande Ecoles). Specialisation in Mathematical and Modelling Engineering.
+        - Scholarship holder (highest level)
     - title: High School Diploma in Science (Baccalauréat Général Scientifique)
       institution: Lycée Charles-Emiles Freppel, Obernai, France
       year: 2016
       description:
-        - With highest honors
+        - With highest honors (18.1/20)
 
 - title: Projects
   type: time_table
