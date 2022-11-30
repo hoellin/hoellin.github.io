@@ -9,6 +9,14 @@
 - title: Experience
   type: time_table
   contents:
+    - title: Research Trainee in Cosmology
+      institution: Institut d'Astrophysique de Paris, Paris, France
+      year: 2023 (5 months)
+      description:
+        - Trainee in the "Large-scale structure and distant Universe" group
+        - I work on a novel simulation based inference (sbi) technique to optimally extract cosmological information from astronomical data, for future application to the extraction of physical information from <a href="https://www.cosmos.esa.int/web/euclid">Euclid</a> data
+        #- Advisor - Florent Leclercq & Guilhem Lavaux
+
     - title: Master thesis in Fluid Dynamics
       institution: ONERA - The French Aerospace Lab, Châtillon, France
       year: 2022 - 2023 (1 year)
@@ -72,13 +80,13 @@
             - numerical mathematical modeling
             - statistical mathematical modeling
             - artificial intelligence
-        - title: Main courses undertaken (M1 and M2)
-          contents:
-            - optimization, stochastic optimization, data assimilation, optimal control
-            - signal and wavelets, advanced statistics, stochastic processes, machine learning
-              (clustering, kernel methods, CNN, recurrent networks, data assimilation networks, generative neural networks, reinforcement learning)
-            - PDE, finite elements and volumes, model coupling
-            - high performance computing, resolution of large linear systems, parallel programming
+        # - title: Main courses undertaken (M1 and M2)
+        #   contents:
+        #     - optimization, stochastic optimization, data assimilation, optimal control
+        #     - signal and wavelets, advanced statistics, stochastic processes, machine learning
+        #       (clustering, kernel methods, CNN, recurrent networks, data assimilation networks, generative neural networks, reinforcement learning)
+        #     - PDE, finite elements and volumes, model coupling
+        #     - high performance computing, resolution of large linear systems, parallel programming
     - title: MS in Artificial Intelligence
       institution: ENSEEIHT, Toulouse, France
       year: 2022
@@ -90,17 +98,17 @@
       description:
         - title: I took a full year-off with respect to my training at INSA Toulouse, in order to develop my knowledge of physics.
           contents:
-            - I was admitted to the Magistère de Physique Fondamentale d’Orsay, where I studied for one semester 
-              (analytical mechanics, quantum mechanics, electrodynamics, special relativity, general relativity, cosmology, astrophysics, statistical mechanics, complex analysis)
-            - I completed my gap year with a bibliographic traineeship about plasma physics at
-              IRAP - Institut de recherche en astrophysique et planétologie, and a traineeship about the convergence of series of quantum non-demolition measurements at IMT Toulouse.
+            - I was admitted to the Magistère de Physique Fondamentale d’Orsay, where I studied for one semester
+              # (analytical mechanics, quantum mechanics, electrodynamics, special relativity, general relativity, cosmology, astrophysics, statistical mechanics, complex analysis)
+            - I completed my gap year with a traineeship in plasma physics at
+              IRAP, and a traineeship about the convergence of series of quantum non-demolition measurements at Institut de Mathématiques de Toulouse.
     - title: BS in Mathematics and Basic Sciences
       institution: INSA Toulouse, France
       year: 2019
       description:
         - First 3 years of a 5-year course leading to a Diplôme d’ingénieur
-         (Master of Science in French Grande Ecoles). Specialisation in Mathematical and Modelling Engineering.
-        - Scholarship holder (highest level)
+         (Master of Science in French Grande Ecoles). Specialisation in Mathematical and Modelling Engineering. Solid background in computer science and physics.
+        - Scholarship holder (highest level, 5-7)
     - title: High School Diploma in Science (Baccalauréat Général Scientifique)
       institution: Lycée Charles-Emiles Freppel, Obernai, France
       year: 2016
@@ -129,23 +137,20 @@
       description: Data Assimilation Networks (DAN) to learn Observed Dynamical Systems
     - title: <a href="https://hoellin.github.io/projects/Inversion_tomographique/">Tomographic Inversion</a>
       year: early 2021
-      description: Tomographic inversion for the reconstruction of images in the context of medical imagery.
-                   I explored both analytical methods (direct filtered retroprojection) and algebraic methods
-                   (ART, SIRT, SART) for the inversion of the sinograms.
+      description: Tomographic inversion for the reconstruction of images in medical imagery.
 
 - title: Academic Interests
   type: nested_list
   contents:
     - title: Mathematics
       items:
-        - optimal control theory, data assimilation
-        - partial differential equations
-        - machine learning (physics-informed neural networks, Bayesian inference, data assimilation networks, etc), reinforcement learning
+        - optimal control theory, data assimilation, partial differential equations, sde
+        - machine learning (physics-informed neural networks, data assimilation networks, etc), Bayesian inference, reinforcement learning
     - title: Physics
       items: 
-        - Cosmology (DM and DE, gravitational waves, structure and galaxy formation, stellar feedback, simulations, etc)
+        - Cosmology (DM and DE, gravitational lensing, structure and galaxy formation, stellar feedback, numerical simulations, etc)
         - Plasma physics (turbulence, kinetic theory, etc)
-        - Statistical physics, quantum mechanics
+        - Statistical physics
 
 - title: Other Interests
   type: list
