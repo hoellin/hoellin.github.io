@@ -10,15 +10,15 @@
   type: time_table
   contents:
     - title: Research Trainee in Cosmology
-      institution: Institut d'Astrophysique de Paris, Paris, France
+      institution: <a href="http://www.iap.fr">Institut d'Astrophysique de Paris</a>
       year: 2023 (5 months)
       description:
         - Trainee in the "Large-scale structure and distant Universe" group
-        - I work on a novel simulation based inference (sbi) technique to optimally extract cosmological information from astronomical data, for future application to the extraction of physical information from <a href="https://www.cosmos.esa.int/web/euclid">Euclid</a> data
+        - I work on novel simulation-based inference techniques to optimally extract cosmological information from astronomical data, for future application to the extraction of physical information from <a href="https://www.cosmos.esa.int/web/euclid">Euclid</a> data
         #- Advisor - Florent Leclercq & Guilhem Lavaux
 
     - title: Master thesis in Fluid Dynamics
-      institution: ONERA - The French Aerospace Lab, Châtillon, France
+      institution: <a href="https://www.onera.fr/fr">ONERA - The French Aerospace Lab</a>
       year: 2022 - 2023 (1 year)
       description:
         - Trainee in the NFLU (Digital methods for fluid mechanics) and MSAT (Advanced turbulence modeling and simulation) teams.
@@ -26,7 +26,7 @@
         #- Advisor - <a href="mailto:jean-baptiste.chapelier@onera.fr" target="_blank">Jean-Baptiste Chapelier</a>
 
     - title: Research Trainee
-      institution: CRG - Centro de Regulación Genómica (Centre for Genomic Regulation), Barcelona, Spain
+      institution: <a href="https://www.crg.eu">CRG - Centro de Regulación Genómica</a>, Barcelona, Spain
       year: 2021 (2 months)
       description:
         - Summer traineeship in Guigo's Lab.
@@ -34,7 +34,7 @@
           in Nextflow, based on Surrogate Variable Analysis
 
     - title: Junior Bioinformatics Scientist
-      institution: INSERM (French National Institute of Health and Medical Research), Toulouse, France
+      institution: <a href="https://www.inserm.fr">INSERM (French National Institute of Health and Medical Research)</a>
       year: 2020 - 2022
       description:
         - I studied machine learning methods to predict enhancer-gene relations in the human genome ; in parallel to my Master in Mathematical Modeling
@@ -42,20 +42,19 @@
         #   <a href="mailto:sarah.djebali@inserm.fr" target="_blank">Sarah Djebali</a>
 
     - title: Research Trainee
-      institution: IMT (Toulouse Mathematics Institute)
+      institution: <a href="https://www.math.univ-toulouse.fr/fr/">IMT (Toulouse Mathematics Institute)</a>
       year: 2020 (2 months)
       description:
-        - Stochastic calculcus. I studied the convergence speed of series of quantum non-demolition measurements.
+        - I studied the convergence speed of series of quantum non-demolition measurements (QND measurements).
 
     - title: Research Trainee
-      institution: IRAP - Institut de Recherche en Astrophysique et Planétologie, Toulouse, France
+      institution: <a href="https://www.irap.omp.eu">IRAP - Institut de Recherche en Astrophysique et Planétologie</a>, Toulouse, France
       year: 2020 (4 months)
       description:
-        # - French laboratory of space astrophysics operated by CNRS and Université Paul Sabatier.
-        - I studied kinetic scale plasma turbulence in the solar wind, and analysed the commissioning data of the Solar Orbiter SWA-PAS instrument to look up for secondary beams.
+        - I studied kinetic scale plasma turbulence in the solar wind
 
     - title: Artificial Intelligence Trainee
-      institution: Inria (French National Institute for Research in Computer Science and Automation), MIMESIS team
+      institution: <a href="https://www.inria.fr/fr">Inria</a> (French National Institute for Research in Computer Science and Automation), <a href="https://mimesis.inria.fr">MIMESIS</a> team
       year: 2019 (3 months)
       description:
         - I analysed the robustness of a deep learning method for data-driven bio-mechanical simulation, with respect to data sparsity and noises.
@@ -99,7 +98,7 @@
         - title: I took a full year-off with respect to my training at INSA Toulouse, in order to develop my knowledge of physics.
           contents:
             - I was admitted to the Magistère de Physique Fondamentale d’Orsay, where I studied for one semester
-              # (analytical mechanics, quantum mechanics, electrodynamics, special relativity, general relativity, cosmology, astrophysics, statistical mechanics, complex analysis)
+              # (Hamiltonian mechanics, quantum mechanics, special relativity, general relativity, cosmology, astrophysics, statistical mechanics, complex analysis)
             - I completed my gap year with a traineeship in plasma physics at
               IRAP, and a traineeship about the convergence of series of quantum non-demolition measurements at Institut de Mathématiques de Toulouse.
     - title: BS in Mathematics and Basic Sciences
@@ -107,8 +106,8 @@
       year: 2019
       description:
         - First 3 years of a 5-year course leading to a Diplôme d’ingénieur
-         (Master of Science in French Grande Ecoles). Specialisation in Mathematical and Modelling Engineering. Solid background in computer science and physics.
-        - Scholarship holder (highest level, 5-7)
+         (Master of Science in French Grande Ecoles). Specialisation in Mathematical modelling.
+        - Scholarship holder (level 6/7)
     - title: High School Diploma in Science (Baccalauréat Général Scientifique)
       institution: Lycée Charles-Emiles Freppel, Obernai, France
       year: 2016
@@ -131,7 +130,7 @@
     - title: Molecular Energy Prediction
       year: early 2022
       description: Machine learning -based prediction of the dissociation energy of molecules based on their geometries,
-                    using several approaches (augmented / randomized Coulomb matrices, wavelett scattering transform)
+                    using several approaches (augmented / randomized Coulomb matrices, wavelett scattering transforms)
     - title: <a href="https://hoellin.github.io/projects/DAN/">Data Assimilation Networks</a>
       year: early 2022
       description: Data Assimilation Networks (DAN) to learn Observed Dynamical Systems
@@ -148,9 +147,8 @@
         - machine learning (physics-informed neural networks, data assimilation networks, etc), Bayesian inference, reinforcement learning
     - title: Physics
       items: 
-        - Cosmology (DM and DE, gravitational lensing, structure and galaxy formation, stellar feedback, numerical simulations, etc)
-        - Plasma physics (turbulence, kinetic theory, etc)
-        - Statistical physics
+        - Cosmology
+        - Simulation for plasma physics, astrophysics, and cosmology
 
 - title: Other Interests
   type: list
