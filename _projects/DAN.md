@@ -3,7 +3,7 @@ layout: page
 title: Data Assimilation Networks
 description: M2-practical on Data Assimilation Networks
 img: assets/img/projects_preview/lorenz_40D.png
-importance: 1
+importance: 3
 category: student-projects
 ---
 

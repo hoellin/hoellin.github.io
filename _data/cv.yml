@@ -1,10 +1,10 @@
-- title: General Information
-  type: map
-  contents:
-    - name: Full Name
-      value: Tristan Hoellinger
-    - name: Languages
-      value: French, English, German
+# - title: General Information
+#   type: map
+#   contents:
+#     - name: Full Name
+#       value: Tristan Hoellinger
+#     - name: Languages
+#       value: French, English, German
 
 - title: Experience
   type: time_table
@@ -95,12 +95,12 @@
       institution: Paris-Saclay University, Gif-sur-Yvette, France
       year: 2020
       description:
-        - title: I took a full year-off with respect to my training at INSA Toulouse, in order to develop my knowledge of physics.
-          contents:
-            - I was admitted to the Magistère de Physique Fondamentale d’Orsay, where I studied for one semester
-              # (Hamiltonian mechanics, quantum mechanics, special relativity, general relativity, cosmology, astrophysics, statistical mechanics, complex analysis)
-            - I completed my gap year with a traineeship in plasma physics at
-              IRAP, and a traineeship about the convergence of series of quantum non-demolition measurements at Institut de Mathématiques de Toulouse.
+        - I took a full year-off with respect to my training at INSA Toulouse, in order to develop my knowledge of physics.
+        # - title: I took a full year-off with respect to my training at INSA Toulouse, in order to develop my knowledge of physics.
+        #   contents:
+        #     - I was admitted to the Magistère de Physique Fondamentale d’Orsay, where I studied for one semester
+        #     - I completed my gap year with a traineeship in plasma physics at
+        #       IRAP, and a traineeship about the convergence of series of quantum non-demolition measurements at Institut de Mathématiques de Toulouse.
     - title: BS in Mathematics and Basic Sciences
       institution: INSA Toulouse, France
       year: 2019
@@ -153,4 +153,4 @@
 - title: Other Interests
   type: list
   contents:
-    - <u>Hobbies:</u> Photography, martial arts, running, hiking
+    - <u>Hobbies:</u> Photography, martial arts, running, hiking, bouldering

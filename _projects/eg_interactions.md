@@ -4,8 +4,8 @@ title: E/G interactions
 description: Investigating state-of-the-art methods for Genome-wide identification of enhancer/gene interactions
 img: assets/img/publication_preview/broad_approaches.jpg
 redirect: https://hoellin.github.io/eg/
-importance: 3
-category: work
+importance: 0
+category: [student-projects, work] #work
 ---
 
 Every project has a beautiful feature showcase page.

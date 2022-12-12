@@ -3,7 +3,7 @@ layout: page
 title: sparse reconstruction
 description: Small M1-practical on sparse reconstruction in Julia.
 img: assets/img/projects_preview/cameraman.png
-importance: 2
+importance: 4
 category: student-projects
 ---
 
