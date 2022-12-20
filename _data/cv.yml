@@ -93,11 +93,13 @@
         #       (clustering, kernel methods, CNN, recurrent networks, data assimilation networks, generative neural networks, reinforcement learning)
         #     - PDE, finite elements and volumes, model coupling
         #     - high performance computing, resolution of large linear systems, parallel programming
+      img: "/assets/img/cv/insa.png"
     - title: MS in Artificial Intelligence
       institution: ENSEEIHT, Toulouse, France
       year: 2022
       description:
         - Double Master's degree in Mathematics and Hybrid AI with INSA Toulouse.
+      img: "/assets/img/cv/n7.png"
     - title: BS in Fundamental Physics and Internship in Plasma Physics
       institution: Paris-Saclay University, Gif-sur-Yvette, France
       year: 2020
@@ -108,6 +110,7 @@
         #     - I was admitted to the Magistère de Physique Fondamentale d’Orsay, where I studied for one semester
         #     - I completed my gap year with a traineeship in plasma physics at
         #       IRAP, and a traineeship about the convergence of series of quantum non-demolition measurements at Institut de Mathématiques de Toulouse.
+      img: "/assets/img/cv/upsaclay.png"
     - title: BS in Mathematics and Basic Sciences
       institution: INSA Toulouse, France
       year: 2019
@@ -115,11 +118,13 @@
         - First 3 years of a 5-year course leading to a Diplôme d’ingénieur
          (Master of Science in French Grande Ecoles). Specialisation in Mathematical modelling.
         - Scholarship holder (level 6/7)
+      img: "/assets/img/cv/insa.png"
     - title: High School Diploma in Science (Baccalauréat Général Scientifique)
       institution: Lycée Charles-Emiles Freppel, Obernai, France
       year: 2016
       description:
         - With highest honors (18.1/20)
+      img: "/assets/img/cv/freppel.jpg"
 
 - title: Projects
   type: time_table
