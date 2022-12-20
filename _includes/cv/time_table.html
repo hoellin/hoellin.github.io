@@ -7,6 +7,14 @@
               <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px;">
                 {{ content.year }}
               </span>
+              {% if content.img %}
+                <div class="preview z-depth-1 rounded">
+                    {%- include figure.html
+                      path=content.img
+                      class="img-fluid rounded z-depth-1"
+                      alt="institute logo" -%}
+                </div>
+              {% endif %}
             </div>
           {% endif %}
           <div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-0">

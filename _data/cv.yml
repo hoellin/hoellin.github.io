@@ -16,6 +16,7 @@
         - Trainee in the "Large-scale structure and distant Universe" group
         - I work on novel simulation-based inference techniques to optimally extract cosmological information from astronomical data, for future application to the extraction of physical information from <a href="https://www.cosmos.esa.int/web/euclid">Euclid</a> data
         #- Advisor - Florent Leclercq & Guilhem Lavaux
+      img: "/assets/img/cv/iap.jpg"
 
     - title: Master thesis in Fluid Dynamics
       institution: <a href="https://www.onera.fr/fr">ONERA - The French Aerospace Lab</a>
@@ -24,6 +25,7 @@
         - Trainee in the NFLU (Digital methods for fluid mechanics) and MSAT (Advanced turbulence modeling and simulation) teams.
         - I develop and study new high order methods to better preserve vortical structures in numerical simulations of turbulent flows.
         #- Advisor - <a href="mailto:jean-baptiste.chapelier@onera.fr" target="_blank">Jean-Baptiste Chapelier</a>
+      img: "/assets/img/cv/onera.jpg"
 
     - title: Research Trainee
       institution: <a href="https://www.crg.eu">CRG - Centro de Regulación Genómica</a>, Barcelona, Spain
@@ -32,6 +34,7 @@
         - Summer traineeship in Guigo's Lab.
         - I implemented a scalable pipeline (for demonstration purposes) for automatic identification of IR-QTL (Intron Retention Quantitative Trait Loci)
           in Nextflow, based on Surrogate Variable Analysis
+      img: "/assets/img/cv/crg.png"
 
     - title: Junior Bioinformatics Scientist
       institution: <a href="https://www.inserm.fr">INSERM (French National Institute of Health and Medical Research)</a>
@@ -40,18 +43,21 @@
         - I studied machine learning methods to predict enhancer-gene relations in the human genome ; in parallel to my Master in Mathematical Modeling
         #- Advisor -
         #   <a href="mailto:sarah.djebali@inserm.fr" target="_blank">Sarah Djebali</a>
+      img: "/assets/img/cv/inserm.jpg"
 
     - title: Research Trainee
       institution: <a href="https://www.math.univ-toulouse.fr/fr/">IMT (Toulouse Mathematics Institute)</a>
       year: 2020 (2 months)
       description:
         - I studied the convergence speed of series of quantum non-demolition measurements (QND measurements).
+      img: "/assets/img/cv/imt.jpg"
 
     - title: Research Trainee
       institution: <a href="https://www.irap.omp.eu">IRAP - Institut de Recherche en Astrophysique et Planétologie</a>, Toulouse, France
       year: 2020 (4 months)
       description:
         - I studied kinetic scale plasma turbulence in the solar wind
+      img: "/assets/img/cv/irap.jpg"
 
     - title: Artificial Intelligence Trainee
       institution: <a href="https://www.inria.fr/fr">Inria</a> (French National Institute for Research in Computer Science and Automation), <a href="https://mimesis.inria.fr">MIMESIS</a> team
@@ -61,6 +67,7 @@
         - As a result, we implemented an
           <a href="../publications/" target="_blank">efficient transfer learning solution</a>
           to learn new parameters with few data
+      img: "/assets/img/cv/inria.png"
 
     - title: Farm hand
       institution: La Ferme aux 100 Blés, Saint-Broing-Les-Moines, France
