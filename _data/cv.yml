@@ -13,8 +13,8 @@
       institution: <a href="http://www.iap.fr">Institut d'Astrophysique de Paris</a>
       year: 2023 (5 months)
       description:
-        - Trainee in the "Large-scale structure and distant Universe" group
-        - I work on novel simulation-based inference techniques to optimally extract cosmological information from astronomical data, for future application to the extraction of physical information from <a href="https://www.cosmos.esa.int/web/euclid">Euclid</a> data
+        - Trainee in the "Large-scale structure and distant Universe" group.
+        - I work on novel simulation-based inference techniques to optimally extract cosmological information from astronomical data, for future application to the extraction of physical information from <a href="https://www.cosmos.esa.int/web/euclid">Euclid</a> data.
         #- Advisor - Florent Leclercq & Guilhem Lavaux
       img: "/assets/img/cv/iap.jpg"
 
@@ -32,15 +32,14 @@
       year: 2021 (2 months)
       description:
         - Summer traineeship in Guigo's Lab.
-        - I implemented a scalable pipeline (for demonstration purposes) for automatic identification of IR-QTL (Intron Retention Quantitative Trait Loci)
-          in Nextflow, based on Surrogate Variable Analysis
+        - I implemented a scalable pipeline for automatic identification of IR-QTL (Intron Retention Quantitative Trait Loci) based on SVA (Surrogate Variable Analysis).
       img: "/assets/img/cv/crg.png"
 
     - title: Junior Bioinformatics Scientist
       institution: <a href="https://www.inserm.fr">INSERM (French National Institute of Health and Medical Research)</a>
       year: 2020 - 2022
       description:
-        - I studied machine learning methods to predict enhancer-gene relations in the human genome ; in parallel to my Master in Mathematical Modeling
+        - I studied machine learning methods to predict enhancer-gene relations in the human genome ; in parallel to my Master in Mathematical Modeling.
         #- Advisor -
         #   <a href="mailto:sarah.djebali@inserm.fr" target="_blank">Sarah Djebali</a>
       img: "/assets/img/cv/inserm.jpg"
@@ -56,7 +55,7 @@
       institution: <a href="https://www.irap.omp.eu">IRAP - Institut de Recherche en Astrophysique et Planétologie</a>, Toulouse, France
       year: 2020 (4 months)
       description:
-        - I studied kinetic scale plasma turbulence in the solar wind
+        - I studied kinetic scale plasma turbulence in the solar wind.
       img: "/assets/img/cv/irap.jpg"
 
     - title: Artificial Intelligence Trainee
@@ -66,7 +65,7 @@
         - I analysed the robustness of a deep learning method for data-driven bio-mechanical simulation, with respect to data sparsity and noises.
         - As a result, we implemented an
           <a href="../publications/" target="_blank">efficient transfer learning solution</a>
-          to learn new parameters with few data
+          to learn new parameters with few data.
       img: "/assets/img/cv/inria.png"
 
     - title: Farm hand
@@ -77,7 +76,7 @@
   type: time_table
   contents:
     - title: MS in Mathematical Modeling
-      institution: INSA Toulouse, France
+      institution: <a href="https://www.insa-toulouse.fr/en/index.html">INSA Toulouse, France</a>
       year: 2022
       description:
         - Double Master's degree in Mathematics and Hybrid AI with ENSEEIHT
@@ -86,33 +85,22 @@
             - numerical mathematical modeling
             - statistical mathematical modeling
             - artificial intelligence
-        # - title: Main courses undertaken (M1 and M2)
-        #   contents:
-        #     - optimization, stochastic optimization, data assimilation, optimal control
-        #     - signal and wavelets, advanced statistics, stochastic processes, machine learning
-        #       (clustering, kernel methods, CNN, recurrent networks, data assimilation networks, generative neural networks, reinforcement learning)
-        #     - PDE, finite elements and volumes, model coupling
-        #     - high performance computing, resolution of large linear systems, parallel programming
       img: "/assets/img/cv/insa.png"
     - title: MS in Artificial Intelligence
-      institution: ENSEEIHT, Toulouse, France
+      institution: <a href="https://www.enseeiht.fr/fr/index.html">INP-ENSEEIHT</a>, France
       year: 2022
       description:
-        - Double Master's degree in Mathematics and Hybrid AI with INSA Toulouse.
-      img: "/assets/img/cv/n7.png"
+        - Double Master's degree (<i>Diplôme d’ingénieur</i>) in Mathematics and Hybrid AI together with INSA Toulouse.
+      img: "/assets/img/cv/n7.jpg"
     - title: BS in Fundamental Physics and Internship in Plasma Physics
-      institution: Paris-Saclay University, Gif-sur-Yvette, France
+      institution: <a href="https://www.universite-paris-saclay.fr/en">Paris-Saclay University</a>, Gif-sur-Yvette, France
       year: 2020
       description:
         - I took a full year-off with respect to my training at INSA Toulouse, in order to develop my knowledge of physics.
-        # - title: I took a full year-off with respect to my training at INSA Toulouse, in order to develop my knowledge of physics.
-        #   contents:
-        #     - I was admitted to the Magistère de Physique Fondamentale d’Orsay, where I studied for one semester
-        #     - I completed my gap year with a traineeship in plasma physics at
-        #       IRAP, and a traineeship about the convergence of series of quantum non-demolition measurements at Institut de Mathématiques de Toulouse.
-      img: "/assets/img/cv/upsaclay.png"
+        - I studied one semester at the Magistère de Physique Fondamentale d’Orsay, and completed my gap year with 2 traineeships in physics.
+      img: "/assets/img/cv/upsaclay.jpg"
     - title: BS in Mathematics and Basic Sciences
-      institution: INSA Toulouse, France
+      institution: <a href="https://www.insa-toulouse.fr/en/index.html">INSA Toulouse, France</a>
       year: 2019
       description:
         - First 3 years of a 5-year course leading to a Diplôme d’ingénieur
@@ -155,12 +143,12 @@
   contents:
     - title: Mathematics
       items:
-        - optimal control theory, data assimilation, partial differential equations, sde
-        - machine learning (physics-informed neural networks, data assimilation networks, etc), Bayesian inference, reinforcement learning
+        - optimal control theory, data assimilation, partial and stochastic differential equations
+        - Bayesian inference, reinforcement learning, physics-informed neural networks, data assimilation networks, etc
     - title: Physics
       items: 
         - Cosmology
-        - Simulation for plasma physics, astrophysics, and cosmology
+        - Simulation for plasma physics, astrophysics, fluid dynamics, etc
 
 - title: Other Interests
   type: list

@@ -5,7 +5,7 @@ permalink: /projects/
 description:
 nav: true
 nav_order: 2
-display_categories: [student-projects, work] #[work, student-projects]
+display_categories: [work, student-projects]
 horizontal: false
 ---
 

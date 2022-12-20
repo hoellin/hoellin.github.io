@@ -21,7 +21,7 @@ nav_order: 3
 
 <!-- ## GitHub Repositories -->
 
-Main GiHhub Repositories. Most of the projects do not have a repository yet, but they will be added soon.
+<!-- Main GiHhub Repositories. -->
 
 {% if site.data.repositories.github_repos %}
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
