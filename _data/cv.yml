@@ -1,0 +1,93 @@
+- title: Academic Employment
+  type: time_table
+  contents:
+    - title: Ph.D. Candidate in Cosmology
+      institution: <a href="https://www.sorbonne-universite.fr">Sorbonne Université</a> - <a href="http://www.iap.fr">Institut d'Astrophysique de Paris</a>
+      year: 2023-2026
+      description:
+        - Group "Large scale structures and the distant Universe" at <a href="http://www.iap.fr">IAP</a>.
+        - Subject&#58 Cosmological physics with Euclid cosmic web probes.
+        - Consortia&#58 <a href="http://aquila-consortium.org">Aquila</a> (2023-), <a href="https://www.euclid-ec.org">Euclid Consortium</a> (2023-)
+      img: "/assets/img/cv/sorbonne.jpeg"
+
+- title: Research Internships
+  type: time_table
+  contents:
+    - title: Graduate Trainee in Cosmology
+      institution: <a href="http://www.iap.fr">Institut d'Astrophysique de Paris</a>, France
+      year: 2023 (5 months)
+      description:
+        - Trainee in the "Large-scale structure and distant Universe" group.
+        - Topic&#58; extension of novel simulation-based inference techniques to extract cosmological information from galaxy surveys.
+      img: "/assets/img/cv/iap.jpg"
+
+    - title: Master thesis in Fluid Dynamics
+      institution: <a href="https://www.onera.fr/fr">ONERA - The French Aerospace Lab</a>, Châtillon, France
+      year: 2022 - 2023 (1 year)
+      description:
+        - Trainee in the NFLU (Digital methods for fluid dynamics) and MSAT (Advanced turbulence modelling and simulation) teams.
+        - Topic&#58; Analytical development of a vorticity confinement scheme for the dns of Navier Stokes equations through Discontinuous Galerkine Methods.
+      img: "/assets/img/cv/onera.jpg"
+
+    - title: Research Trainee
+      institution: <a href="https://www.crg.eu">CRG - Centro de Regulación Genómica</a>, Barcelona, Spain
+      year: 2021 (2 months)
+      description:
+        - Topic&#58; automatic identification of Intron-Rentention Quantitative Trait Loci.
+      img: "/assets/img/cv/crg.png"
+
+    - title: Junior Bioinformatics Scientist
+      institution: <a href="https://www.inserm.fr">INSERM (French National Institute of Health and Medical Research)</a>
+      year: 2020 - 2022
+      description:
+        - Junior Bioinformatics Scientist in parallel to my Master in Mathematics.
+        - Topic&#58; functional genomics, identification of enhancer-gene interactions.
+      img: "/assets/img/cv/inserm.jpg"
+
+    - title: Research Trainee
+      institution: <a href="https://www.math.univ-toulouse.fr/fr/">IMT (Toulouse Mathematics Institute)</a>, Toulouse, France
+      year: 2020 (2 months)
+      description:
+        - Stochastic calculus. Topic&#58; I studied the convergence rate of series of repeated quantum nondemolition measurements.
+      img: "/assets/img/cv/imt.jpg"
+
+    - title: Research Trainee
+      institution: <a href="https://www.irap.omp.eu">IRAP - Institut de Recherche en Astrophysique et Planétologie</a>, Toulouse, France
+      year: 2020 (4 months)
+      description:
+        - Topic&#58; kinetic scale plasma turbulence in the solar wind.
+      img: "/assets/img/cv/irap.jpg"
+
+    - title: Artificial Intelligence Trainee
+      institution: <a href="https://www.inria.fr/fr">Inria</a>, <a href="https://mimesis.inria.fr">MIMESIS</a> team, Strasbourg, France
+      year: 2019 (3 months)
+      description:
+       - I analysed the robustness of a deep learning method for data-driven bio-mechanical simulation, with respect to data sparsity and noises.
+      img: "/assets/img/cv/inria.png"
+
+- title: Education
+  type: time_table
+  contents:
+    - title: Ph.D. Candidate in Cosmology
+      institution: <a href="https://www.sorbonne-universite.fr">Sorbonne Université</a> - <a href="http://www.iap.fr">Institut d'Astrophysique de Paris</a>, France
+      year: 2023-2026
+      description:
+      img: "/assets/img/cv/Sciences_SU.png"
+    - title: M.Sc. in Mathematics & M.Sc. in Artificial Intelligence
+      institution: <a href="https://www.insa-toulouse.fr/en/insa-toulouse/">INSA Toulouse</a> & <a href="https://en.wikipedia.org/wiki/ENSEEIHT">N7</a>, France
+      year: 2020-2023
+      description:
+      img: "/assets/img/cv/insa.jpg"
+    - title: Gap year x Academic Exchange in Physics
+      institution: <a href="https://www.universite-paris-saclay.fr/en">Paris-Saclay University</a>, Gif-sur-Yvette, France
+      year: 2019-2020
+      description:
+        - I successfully studied 1 semester in the Magistère de Physique d’Orsay.
+        - I completed my gap year with 2 traineeships in theoretical physics.
+      img: "/assets/img/cv/upsaclay_and_mag.png"
+    - title: Bachelor of Science in Mathematics
+      institution: Part of a 5-year curriculum at <a href="https://www.insa-toulouse.fr/en/insa-toulouse/">INSA Toulouse</a>, France
+      year: 2016-2019
+      description:
+        - 3-year <a href="https://en.wikipedia.org/wiki/Institut_national_des_sciences_appliqu%C3%A9es_de_Toulouse">intensive undergraduate preparatory program</a> (Bachelor's degree) in fundamental and applied sciences, specialized in mathematics.
+        - National scholarship + merit-based grant holder (total ~7k€/year).
