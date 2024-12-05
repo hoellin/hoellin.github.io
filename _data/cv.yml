@@ -25,8 +25,8 @@
       institution: <a href="https://www.onera.fr/fr">ONERA - The French Aerospace Lab</a>, Châtillon, France
       year: 2022 - 2023 (1 year)
       description:
-        - Trainee in the NFLU (Digital methods for fluid dynamics) and MSAT (Advanced turbulence modelling and simulation) teams.
-        - Topic&#58; Analytical development of a Vorticity Confinement correction for the Discontinuous Galerkine discretisation of the compressible Navier-Stokes equations. Implementation in a massively parallel fluid solver.
+        - Trainee in the NFLU (Digital methods for fluid dynamics) and MSAT (Advanced turbulence modelling and simulation) teams, DAAA departement.
+        - Topic&#58; Analytical development of a Vorticity Confinement correction for the Discontinuous Galerkine discretisation of the Navier-Stokes equations.
       img: "/assets/img/cv/onera.jpg"
 
     - title: Research Trainee
