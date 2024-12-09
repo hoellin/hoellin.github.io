@@ -7,8 +7,6 @@ nav_order: 4
 subtitle: 
 ---
 
-All these resources are in French.
-
 ## 2024-2025
 
 ##### L3 - Formues de Stokes et EDP
