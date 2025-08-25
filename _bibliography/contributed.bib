@@ -1,0 +1,40 @@
+---
+---
+
+@article{hoellinger2025_houches,
+  title={Accurate Small Scale Dynamics in COLA},
+  journal={<a href="https://indico.iap.fr/event/25/overview">Les Houches on Dark Universe</a>, Les Houches, France},
+  date={2025},
+  url="https://indico.iap.fr/event/25/overview/",
+  html="https://indico.iap.fr/event/25/contributions/252/attachments/149/198/hoellinger_Houches2025.pdf",
+  abstract="Ongoing galaxy surveys map the Universe’s large-scale structure with unprecedented fidelity across immense cosmological volumes. Cosmological inference at the field level demands thousands of N-body simulations. To fully exploit Stage-IV data, simulators must therefore produce fast, high-precision realisations spanning vast cosmological volumes and reaching deep into the non-linear regime. The COmoving Lagrangian Acceleration (COLA) algorithm accelerates large-scale cosmological simulations by decoupling the temporal evolution of large and small scales: large scales are evolved analytically using Lagrangian Perturbation Theory (LPT), while small scales are integrated numerically. Contrary to a common misconception, COLA does not inherently sacrifice small-scale accuracy for speed: the LPT change of frame of reference can be done with any force calculation technique. I show that accurate small-scale dynamics can be obtained at a tractable computational cost by employing Particle–Particle–Particle–Mesh (P3M) force evaluations within an LPT frame of reference, achieving the precision of tree-based codes down to scales of just a few particle lengths. This result is a significant advance towards fully harnessing the cosmological potential of Stage-IV galaxy surveys.",
+  preview={houches.png}
+}
+
+@article{hoellinger2024_sevilla,
+  title={Lightening blackbox models in cosmology.},
+  journal={<a href="https://gestioneventos.us.es/x-meeting-fundamental-cosmology">X Meeting on Fundamental Cosmology</a>, Sevilla, Andalucía, Spain},
+  date={2024},
+  url="https://gestioneventos.us.es/x-meeting-fundamental-cosmology/",
+  html="https://cloud.aquila-consortium.org/s/QebL6xRyCQK9M6r",
+  abstract="The next generation of galaxy surveys has the potential to significantly deepen our understanding of the Universe, though this potential hinges on our ability to rigorously address systematic uncertainties. This was previously beyond reach in field-based implicit likelihood cosmological inference frameworks. We aim at inferring the initial matter power spectrum after recombination to diagnose a variety of systematic effects in galaxy surveys prior to inferring the cosmological parameters. Our approach is built upon a two-step framework. First, we employ the SELFI algorithm to infer the initial matter power spectrum, which we utilise to comprehensively investigate and disentangle how systematic effects influence the power spectrum reconstruction, using a single set of N-body simulations. Second, we obtain posterior cosmological parameters via implicit likelihood inference, recycling the simulations from the first step for data compression. We rely on a model of large-scale spectroscopic galaxy surveys that incorporates fully non-linear gravitational evolution and simulates multiple systematic effects typically encountered in astrophysical surveys. We demonstrate along with a practical guide how the SELFI posterior can be utilised to thoroughly assess the impact of misspecified linear galaxy bias parameters, selection functions, survey masks and inaccurate redshifts on the initial power spectrum after recombination. We show that a subtly misspecified model can lead to a bias greater than 2σ in the (Ωm, σ8) plane, which we are able to detect and avoid using SELFI prior to inferring the cosmological parameters. This framework has the potential to significantly enhance the robustness of physical information extraction from full-forward models of large-scale galaxy surveys such as DESI, Euclid, and LSST.",
+  preview={University-of-Seville.png}
+}
+
+@article{hoellinger2024_euclid_france,
+  title={Implicit Likelihood Inference in cosmology while checking for survey systematics.},
+  journal={<a href="https://euclid-fr2023.sciencesconf.org">Euclid-France 12th Symposium</a>, Lyon, France},
+  date={2024},
+  url="https://euclid-fr2023.sciencesconf.org",
+  abstract="We present methodological advances to perform implicit likelihood inference of cosmology from arbitrarily complex models of galaxy surveys, while efficiently checking for systematics. This novel approach makes it possible to fully utilise our prior theoretical understanding of the initial matter power spectrum, in order to investigate the effects of known sources of systematics at play in the complex data generating process. It is currently being used for Additional Galaxy Clustering probes in preparation for the first Euclid data release.",
+  preview={slice.png}
+}
+
+@article{hoellinger2023,
+  title={Implicit Likelihood Inference in cosmology while checking for survey systematics.},
+  journal={<a href="https://indico.in2p3.fr/event/29646/">Action Dark Energy</a>, Annecy, France},
+  note={Action Dark Energy 2023, Annecy, France},
+  date={2023},
+  abstract="We present methodological advances to perform implicit likelihood inference of cosmology from any forward model of galaxy surveys, while efficiently checking for systematics. The approach is based on a two-steps framework, and does not require any inner knowledge of the forward data model. First, we use SELFI (Simulator expansion for likelihood-free inference) to infer the initial matter power spectrum from any probe, and we use it to check whether all systematics are correctly accounted for based on qualitative and quantitative criteria. Second, cosmological parameters are inferred using implicit likelihood inference. Simulations used in the first step are recycled for optimal data compression, which is required for the second step. We show that mis-modelled systematic effects that would result in a biased posterior are unambiguously detected before performing the inference of cosmological parameters. The method is currently being used for Additional Galaxy Clustering probes in preparation for the first Euclid data release.",
+  preview={dm.png}
+}
