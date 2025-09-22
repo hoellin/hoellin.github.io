@@ -1,1 +1,1 @@
-window.__PORTRAITS__ = [];
+window.__PORTRAITS__=[];
