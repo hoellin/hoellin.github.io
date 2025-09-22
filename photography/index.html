@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tristan Hoellinger</title>
+  <meta name="description" content="Photography by Tristan Hoellinger — selected works, fine‑art prints, and portrait sessions." />
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t){document.documentElement.setAttribute('data-theme', t);}}catch(e){}})();</script>
+  <style>html.i18n-pending body{visibility:hidden}</style>
+  <script>(function(){try{var L=localStorage.getItem('lang')||'en';document.documentElement.setAttribute('lang',L);document.documentElement.classList.add('i18n-pending');setTimeout(function(){document.documentElement.classList.remove('i18n-pending');},1500);}catch(e){}})();</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/assets/js/i18n.js"></script>
+  <style>
+    html { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    :focus-visible { outline: 2px solid #4b5563; outline-offset: 2px; }
+    .pastel-link { color: #7fa1c3; text-decoration-color: #7fa1c3; }
+    .pastel-link:hover { color: #6a90b7; text-decoration-color: #6a90b7; }
+    html[data-theme="dark"] .pastel-link { color: #9cc9ff; text-decoration-color: #9cc9ff; }
+    html[data-theme="dark"] .pastel-link:hover { color: #b3d6ff; text-decoration-color: #b3d6ff; }
+    /* Consistent CTA sizing across pages */
+    .cta { display:inline-flex; align-items:center; justify-content:center; padding:.35rem .7rem; font-size:.75rem; font-weight:500; border-radius:.5rem; }
+    .cta--wide { width: 10.25rem; padding:.3125rem .625rem; }
+    /* Minimal pre-grid space and consistent height */
+    .pre-grid { margin-top: .5rem; }
+    @media (min-width: 1024px){ .pre-grid { min-height: 200px; } }
+    /* Mobile: slightly larger intro copy for readability */
+    @media (max-width: 640px){ .intro-copy { font-size: 1.1rem; line-height: 1.6; } }
+    /* Hide info until grid is ready to avoid layout flash */
+    #info { opacity: 0; }
+    body.grid-ready #info { opacity: 1; transition: opacity .2s ease-in-out; }
+    /* Ensure card info rows have identical height across pages */
+    .card-info { min-height: 4.5rem; }
+    .card-price { width: 4rem; text-align: right; }
+    /* Normalize media wrapper across buttons/anchors */
+    .card-media { display: block; }
+    /* Phones: remove white box chrome + tighten space below header */
+    @media (max-width: 640px){
+      .intro-box { background-color: transparent !important; box-shadow: none !important; }
+      header { padding-bottom: .5rem !important; padding-top: 1.25rem !important; }
+      .pre-grid { margin-top: .25rem; }
+    }
+  </style>
+</head>
+<body class="bg-zinc-50 text-zinc-900">
+  <!-- Header -->
+  <header class="max-w-6xl mx-auto px-6 sm:px-8 pt-10 pb-8">
+    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+      <div>
+        <h1 class="text-2xl sm:text-3xl font-semibold tracking-tight"><a href="/photography/" class="hover:underline">Tristan Hoellinger</a></h1>
+        <p class="mt-1 text-sm text-zinc-600"><span data-i18n="subtitle.role">Cosmologist & Photographer</span></p>
+      </div>
+      <nav class="flex items-center gap-4 text-sm text-zinc-600 self-end sm:self-auto text-right">
+        <a class="hover:text-zinc-900 underline-offset-4 hover:underline portfolio-link" href="/"><span data-i18n="nav.research">Research Portfolio</span></a>
+        <a class="hover:text-zinc-900 underline-offset-4 hover:underline" href="/prints/"><span data-i18n="nav.prints">Prints</span></a>
+        <a class="hover:text-zinc-900 underline-offset-4 hover:underline" href="/portraits/"><span data-i18n="nav.portraits">Portraits</span></a>
+        <a class="hover:text-zinc-900 underline-offset-4 hover:underline" href="#info"><span data-i18n="nav.info">Info</span></a>
+        <a class="hover:text-zinc-900 underline-offset-4 hover:underline" href="#" data-set-lang aria-label="Switch language">FR</a>
+      </nav>
+    </div>
+  </header>
+
+  
+
+  <!-- Pre-grid wrapper for identical alignment across pages -->
+  <section class="pre-grid">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 mt-4">
+      <div class="rounded-2xl bg-white shadow-sm ring-1 ring-zinc-100 p-4 sm:p-5 intro-box">
+        <p class="text-sm text-zinc-700 intro-copy" data-i18n="intro.photography" data-i18n-html>
+I’m a PhD student in cosmological physics at the Institut d’Astrophysique de Paris. I work with the <a href="https://esa.int/Euclid/" class="underline pastel-link">Euclid Space Telescope</a> and develop statistical methods to answer some of the most fascinating questions in modern cosmology: What is dark energy, the mysterious component accelerating the Universe’s expansion? To what extent did neutrinos affect structure formation? If you want to know more about my research, feel free to <a class="underline pastel-link" href="https://hoellin.github.io/about/">visit my academic profile</a>. If you enjoy my photos, purchasing a print helps me focusing on my passions — also it’s an original gift idea —, I’d be deeply grateful. Any other enquiry? Contact me.
+        </p>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 mt-4">
+      <div class="flex flex-wrap gap-2">
+        <a class="cta cta--wide bg-black text-white hover:bg-zinc-800" href="/prints/"><span data-i18n="cta.explore_prints">Explore Prints</span></a>
+        <a class="cta bg-white text-zinc-900 ring-1 ring-zinc-200 hover:bg-zinc-50" href="/portraits/"><span data-i18n="cta.portrait_sessions">Portrait Sessions</span></a>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- Selected works grid -->
+  <main class="max-w-6xl mx-auto px-6 sm:px-8 mt-2 mb-24">
+    <h2 class="sr-only">Selected works</h2>
+    <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </main>
+
+  <!-- Info -->
+  <section id="info" class="max-w-3xl mx-auto px-6 sm:px-8 pb-24">
+    <h3 class="text-lg font-semibold" data-i18n="labels.about">About</h3>
+    <p class="mt-2 text-sm text-zinc-700" data-i18n="photography.about_blurb">Black‑and‑white photographs exploring light, structure and silence. Printed on archival fine‑art papers with pigment inks; editions limited to 30 per size. Each print ships with a signed certificate of authenticity.</p>
+    <h3 id="contact" class="mt-8 text-lg font-semibold" data-i18n="labels.contact">Contact</h3>
+    <p class="mt-2 text-sm text-zinc-700" data-i18n="photography.contact_blurb" data-i18n-html>For portrait sessions, collaborations, or general enquiries, email <a class="underline pastel-link" href="mailto:hoellin.photo@gmail.com">hoellin.photo@gmail.com</a>.</p>
+  </section>
+
+  <footer class="border-t border-zinc-200 py-10">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 text-xs text-zinc-500 flex items-center justify-between">
+      <p>© <span id="yr"></span> Tristan Hoellinger. <span data-i18n="labels.rights">All rights reserved.</span></p>
+      <a class="underline hover:no-underline" href="/prints/impressum.html" data-i18n="labels.imprint">Imprint & Terms</a>
+    </div>
+  </footer>
+
+  <script src="/prints/works.js"></script>
+  <script>
+    // Build a simple selection from prints data
+    const WORKS = Array.isArray(window.__WORKS__) ? window.__WORKS__ : [];
+    const grid = document.getElementById('grid');
+    const selection = WORKS.slice(0, 6);
+    selection.forEach((w) => {
+      const meta = [w.year, w.size, w.edition].filter(Boolean).join(' • ');
+      const card = document.createElement('article');
+      card.className = "group rounded-2xl overflow-hidden bg-white ring-1 ring-zinc-100 shadow-sm hover:shadow transition";
+      card.innerHTML = `
+        <a href="/prints/" class="relative w-full block aspect-[4/3] bg-black card-media" aria-label="Open ${w.title}">
+          <img src="${w.src}" alt="${w.alt || w.title}" loading="lazy" class="absolute inset-0 h-full w-full object-cover opacity-90 group-hover:opacity-100 transition"/>
+        </a>
+        <div class="p-4 flex items-center justify-between gap-3 card-info">
+          <div>
+            <h3 class="text-sm font-medium">${w.title}</h3>
+            <p class="text-xs text-zinc-600">${meta}</p>
+          </div>
+          <div class="text-sm font-semibold card-price">${w.price || ''}</div>
+        </div>`;
+      grid.appendChild(card);
+    });
+    document.body.classList.add('grid-ready');
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+  <script>
+    (function(){
+      function setLight(){ try{ localStorage.setItem('theme','light'); }catch(e){} }
+      try {
+        var links = document.querySelectorAll('a.portfolio-link, a.force-light');
+        links.forEach(function(a){
+          a.addEventListener('click', setLight);
+          a.addEventListener('mousedown', setLight);
+          a.addEventListener('touchstart', setLight, {passive:true});
+        });
+      } catch(e){}
+    })();
+  </script>
+</body>
+</html>

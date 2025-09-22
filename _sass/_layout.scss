@@ -1,0 +1,153 @@
+/******************************************************************************
+ * Content
+ ******************************************************************************/
+
+body {
+  padding-bottom: 70px;
+  color: var(--global-text-color);
+  background-color: var(--global-bg-color);
+
+  h1, h2, h3, h4, h5, h6 {
+    scroll-margin-top: 66px;
+  }
+}
+
+body.fixed-top-nav {
+  // Add some padding for the nav-bar.
+  padding-top: 56px;
+}
+
+body.sticky-bottom-footer {
+  // Remove padding below footer.
+  padding-bottom: 0;
+}
+
+.container {
+  max-width: $max-content-width;
+}
+
+// Profile
+.profile {
+  img {
+    width: 100%;
+  }
+}
+
+// TODO: redefine content layout.
+
+
+/******************************************************************************
+ * Publications
+ ******************************************************************************/
+
+// TODO: redefine publications layout.
+
+
+/*****************************************************************************
+* Projects
+*****************************************************************************/
+
+// TODO: redefine projects layout.
+
+/******************************************************************************
+ * Navbar custom link styles
+ ******************************************************************************/
+
+// Emphasise the "Prints" nav link with inverted theme colours.
+.navbar .nav-link.nav-link--prints {
+  border-radius: 9999px;
+  /* Keep Bootstrap's default padding for alignment */
+  /* padding inherits from .nav-link */
+  box-shadow: 0 0 0 1px var(--global-divider-color) inset; /* subtle ring without changing height */
+  background-color: var(--global-text-color) !important; /* enforce pill fill */
+  color: var(--global-bg-color) !important; /* ensure contrast */
+  margin-left: .75rem; /* a bit separate from brand */
+}
+
+/* Ensure inner span inherits correct contrast color, especially in mobile menu */
+.navbar .navbar-nav .nav-link.nav-link--prints,
+.navbar .navbar-nav .nav-link.nav-link--prints > span {
+  color: var(--global-bg-color) !important;
+}
+.navbar .nav-link.nav-link--prints:hover {
+  opacity: .92;
+  text-decoration: none;
+}
+
+/* Language toggle: keep width stable to avoid layout shift */
+.nav-lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem; /* fixed width so EN/FR swap never reflows siblings */
+  text-align: center;
+}
+@media (max-width: 575.98px) {
+  /* Mobile dropdown: make language toggle look like other items and align consistently */
+  .navbar .nav-lang-toggle {
+    display: block;            /* match .nav-link default */
+    width: auto;               /* natural width */
+    min-width: 0;
+    text-align: inherit;       /* align with menu */
+    font-weight: 600;          /* subtle emphasis via weight */
+    text-decoration: none;     /* no underline per preference */
+  }
+}
+
+/* Add breathing room before News on small screens */
+@media (max-width: 575.98px) {
+  .about-photography { margin-bottom: 1rem; }
+}
+
+/* CV (vitae) – larger institute logos/badges on phones (match pubs/talks density) */
+@media (max-width: 575.98px) {
+  .cv .row > .text-center { width: 120px !important; }
+  .cv .badge { min-width: 120px !important; }
+  .cv .preview, .cv .preview img { max-width: 120px; }
+}
+
+/******************************************************************************
+ * About page — photography note styling
+ ******************************************************************************/
+
+.about-photography {
+  /* Softer, demure sans-serif tone */
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-style: italic;
+  line-height: 1.6;
+  font-size: 1rem; /* match base size for readability */
+  color: var(--global-text-color-light);
+  opacity: .9; /* slightly softened */
+}
+
+.about-photography a {
+  color: var(--global-theme-color); /* bring back accent colour */
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: currentColor;
+}
+
+html[data-theme='dark'] .about-photography {
+  opacity: .86; /* a touch softer in dark */
+}
+
+/******************************************************************************
+ * Subtle pastel accent links (global)
+ ******************************************************************************/
+
+.pastel-link {
+  color: #7fa1c3;
+  text-decoration-color: #7fa1c3;
+}
+.pastel-link:hover {
+  color: #6a90b7;
+  text-decoration-color: #6a90b7;
+}
+html[data-theme='dark'] .pastel-link {
+  color: #9cc9ff;
+  text-decoration-color: #9cc9ff;
+}
+html[data-theme='dark'] .pastel-link:hover {
+  color: #b3d6ff;
+  text-decoration-color: #b3d6ff;
+}

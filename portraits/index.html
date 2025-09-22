@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tristan Hoellinger</title>
+  <meta name="description" content="Portrait photography by Tristan Hoellinger. Book a session for thoughtful, minimalist portraits." />
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t){document.documentElement.setAttribute('data-theme', t);}}catch(e){}})();</script>
+  <style>html.i18n-pending body{visibility:hidden}</style>
+  <script>(function(){try{var L=localStorage.getItem('lang')||'en';document.documentElement.setAttribute('lang',L);document.documentElement.classList.add('i18n-pending');setTimeout(function(){document.documentElement.classList.remove('i18n-pending');},1500);}catch(e){}})();</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/assets/js/i18n.js"></script>
+  <style>
+    html { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    :focus-visible { outline: 2px solid #4b5563; outline-offset: 2px; }
+    .pastel-link { color: #7fa1c3; text-decoration-color: #7fa1c3; }
+    .pastel-link:hover { color: #6a90b7; text-decoration-color: #6a90b7; }
+    html[data-theme="dark"] .pastel-link { color: #9cc9ff; text-decoration-color: #9cc9ff; }
+    html[data-theme="dark"] .pastel-link:hover { color: #b3d6ff; text-decoration-color: #b3d6ff; }
+    /* Ensure identical pre-grid height for perfect alignment */
+    .pre-grid { margin-top: .5rem; }
+    @media (min-width: 1024px){ .pre-grid { min-height: 200px; } }
+    /* Hide info until grid is ready to avoid layout flash */
+    #info { opacity: 0; }
+    body.grid-ready #info { opacity: 1; transition: opacity .2s ease-in-out; }
+    /* Ensure card info rows have identical height across pages */
+    .card-info { min-height: 4.25rem; }
+    /* Mobile: normalize header spacing across photo pages */
+    @media (max-width: 640px){
+      header { padding-bottom: .5rem !important; padding-top: 1.25rem !important; }
+      .pre-grid { margin-top: .25rem; }
+    }
+  </style>
+  <script>
+    function mailto(subject){
+      window.location.href = 'mailto:hoellin.photo@gmail.com?subject=' + encodeURIComponent(subject);
+    }
+  </script>
+</head>
+<body class="bg-zinc-50 text-zinc-900">
+  <header class="max-w-6xl mx-auto px-6 sm:px-8 pt-10 pb-8">
+    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+      <div>
+        <h1 class="text-2xl sm:text-3xl font-semibold tracking-tight"><a href="/photography/" class="hover:underline">Tristan Hoellinger</a></h1>
+        <p class="mt-1 text-sm text-zinc-600"><span data-i18n="subtitle.role">Cosmologist & Photographer</span></p>
+      </div>
+      <nav class="flex items-center gap-4 text-sm text-zinc-600 self-end sm:self-auto text-right">
+        <a class="hover:text-zinc-900 underline-offset-4 hover:underline portfolio-link" href="/"><span data-i18n="nav.research">Research Portfolio</span></a>
+        <a class="hover:text-zinc-900 underline-offset-4 hover:underline" href="/prints/"><span data-i18n="nav.prints">Prints</span></a>
+        <a class="hover:text-zinc-900 underline-offset-4 hover:underline" href="/portraits/"><span data-i18n="nav.portraits">Portraits</span></a>
+        <a class="hover:text-zinc-900 underline-offset-4 hover:underline" href="#info"><span data-i18n="nav.info">Info</span></a>
+        <a class="hover:text-zinc-900 underline-offset-4 hover:underline" href="#" data-set-lang aria-label="Switch language">FR</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Pre-grid wrapper for identical alignment across pages -->
+  <section class="pre-grid">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 mt-4">
+      <div class="rounded-2xl bg-white shadow-sm ring-1 ring-zinc-100 p-4 sm:p-5">
+        <p class="text-sm text-zinc-700" data-i18n="intro.portraits_lead" data-i18n-html>If you want to book a portrait session, collaborate, or schedule a meeting, email <a class="underline pastel-link" href="mailto:hoellin.photo@gmail.com?subject=Portrait%20Session%20Enquiry">hoellin.photo@gmail.com</a>. I’ll reply promptly with availability and options.</p>
+      <div class="mt-3 flex flex-wrap gap-2">
+          <button class="inline-flex items-center justify-center px-3 py-1.5 rounded-lg bg-black text-white text-xs font-medium hover:bg-zinc-800" onclick="mailto('Meeting request')" data-i18n="cta.meeting">Book a meeting</button>
+          <button class="inline-flex items-center justify-center px-3 py-1.5 rounded-lg bg-black text-white text-xs font-medium hover:bg-zinc-800" onclick="mailto('Collaboration enquiry')" data-i18n="cta.collaboration">Collaboration</button>
+          <button class="inline-flex items-center justify-center px-3 py-1.5 rounded-lg bg-black text-white text-xs font-medium hover:bg-zinc-800" onclick="mailto('Portrait session enquiry')" data-i18n="cta.portrait_sessions">Portrait session</button>
+      </div>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 mt-4">
+      <p class="text-sm text-zinc-700" data-i18n="labels.selection_get_own" data-i18n-html>Selection of portraits — <a class="underline pastel-link" href="mailto:hoellin.photo@gmail.com?subject=Portrait%20session%20enquiry">Get your own</a>.</p>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <main class="max-w-6xl mx-auto px-6 sm:px-8 mt-2 mb-24">
+    <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </main>
+
+  <!-- Lightbox Modal (no pricing/checkout) -->
+  <div id="lightbox" class="fixed inset-0 z-50 hidden bg-black/80 p-4 md:p-8">
+    <div class="max-w-5xl mx-auto bg-white rounded-2xl overflow-hidden shadow-xl flex flex-col md:flex-row">
+      <img id="lb-img" src="" alt="Portrait" class="w-full md:w-2/3 object-contain bg-black" loading="lazy" />
+      <div class="p-5 md:p-8 flex-1 flex flex-col">
+        <h2 id="lb-title" class="text-xl font-semibold"></h2>
+        <p id="lb-desc" class="mt-3 text-sm text-zinc-700"></p>
+        <div class="mt-auto pt-6"></div>
+      </div>
+    </div>
+    <button aria-label="Close" data-i18n="labels.close" data-i18n-attr="aria-label" class="absolute top-4 right-4 h-10 w-10 grid place-items-center rounded-full bg-white/90 text-zinc-900 hover:bg-white">×</button>
+  </div>
+
+  <!-- Info -->
+  <section id="info" class="max-w-3xl mx-auto px-6 sm:px-8 pb-24">
+    <h3 class="text-lg font-semibold" data-i18n="labels.about">About</h3>
+    <p class="mt-2 text-sm text-zinc-700" data-i18n="portraits_page.about_blurb">Sessions are tailored to you; natural light, timeless results.</p>
+    <h3 id="contact" class="mt-8 text-lg font-semibold" data-i18n="labels.contact">Contact</h3>
+    <p class="mt-2 text-sm text-zinc-700" data-i18n="portraits_page.contact_blurb" data-i18n-html>For bookings and enquiries, email <a class="underline pastel-link" href="mailto:hoellin.photo@gmail.com">hoellin.photo@gmail.com</a>.</p>
+  </section>
+
+  <footer class="border-t border-zinc-200 py-10">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 text-xs text-zinc-500 flex items-center justify-between">
+      <p>© <span id="yr"></span> Tristan Hoellinger. <span data-i18n="labels.rights">All rights reserved.</span></p>
+      <a class="underline hover:no-underline" href="/prints/impressum.html" data-i18n="labels.imprint">Imprint & Terms</a>
+    </div>
+  </footer>
+
+  <script src="/portraits/works.js"></script>
+  <script>
+    (function(){
+      function setLight(){ try{ localStorage.setItem('theme','light'); }catch(e){} }
+      try {
+        var links = document.querySelectorAll('a.portfolio-link');
+        links.forEach(function(a){
+          a.addEventListener('click', setLight);
+          a.addEventListener('mousedown', setLight);
+          a.addEventListener('touchstart', setLight, {passive:true});
+        });
+      } catch(e){}
+    })();
+    function mailto(subject){
+      window.location.href = 'mailto:hoellin.photo@gmail.com?subject=' + encodeURIComponent(subject);
+    }
+    const PORTRAITS = Array.isArray(window.__PORTRAITS__) ? window.__PORTRAITS__ : [];
+    const grid = document.getElementById('grid');
+    PORTRAITS.forEach((w, idx) => {
+      const card = document.createElement('article');
+      card.className = "group rounded-2xl overflow-hidden bg-white ring-1 ring-zinc-100 shadow-sm hover:shadow transition";
+      card.innerHTML = `
+        <button class="relative w-full aspect-[3/4] bg-black" aria-label="Open ${w.title || 'Portrait'}">
+          <img src="${w.src}" alt="${w.alt || w.title || 'Portrait'}" loading="lazy" class="absolute inset-0 h-full w-full object-cover opacity-90 group-hover:opacity-100 transition"/>
+        </button>
+        <div class="p-4 card-info">
+          <h3 class="text-sm font-medium">${w.title || ''}</h3>
+          <p class="text-xs text-zinc-600">${w.description || ''}</p>
+        </div>`;
+      card.querySelector('button').addEventListener('click', () => openLightbox(idx));
+      grid.appendChild(card);
+    });
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const lbTitle = document.getElementById('lb-title');
+    const lbDesc = document.getElementById('lb-desc');
+    function openLightbox(i){
+      const w = PORTRAITS[i];
+      lbImg.src = w.src; lbImg.alt = w.alt || w.title || 'Portrait';
+      lbTitle.textContent = w.title || '';
+      lbDesc.textContent = w.description || '';
+      lb.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox(){ lb.classList.add('hidden'); document.body.style.overflow=''; }
+    lb.addEventListener('click', (e)=>{ if(e.target===lb) closeLightbox(); });
+    lb.querySelector('button[aria-label="Close"]').addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLightbox(); });
+    document.body.classList.add('grid-ready');
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+  
+</body>
+</html>
