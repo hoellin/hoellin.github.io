@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Portraits · Tristan M.C. Hoellinger</title>
-  <meta name="description" content="Portraits with natural light.">
+  <meta name="description" content="Natural light.">
   <link rel="canonical" href="https://hoellin.github.io/portraits/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Tristan Hoellinger">
   <meta property="og:title" content="Portraits">
-  <meta property="og:description" content="Portraits with natural light.">
+  <meta property="og:description" content="Natural light.">
   <meta property="og:image" content="https://hoellin.github.io/assets/img/photos/portraits/1.jpg">
   <meta property="og:url" content="https://hoellin.github.io/portraits/">
   <link rel="icon" href="/favicon.png">
@@ -125,8 +125,23 @@ details p { margin: 0.5rem 0 0; }
 .photos img { display: block; width: 100%; height: auto; }
 .photos figcaption { margin-top: 0.5rem; text-align: center; font-size: 0.9rem; color: var(--muted); }
 
-footer { max-width: 42rem; margin: 0 auto; padding: 3rem 1rem 2rem; font-size: 0.85rem; color: var(--muted); }
-.wide + footer { text-align: center; }
+/* The links again, as icons, at the bottom of the home page (social_icons in _config.yml). */
+.social { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25rem 1.25rem; margin: 4rem 0 0; padding: 0; list-style: none; }
+.social a { display: block; padding: 0.6rem; color: var(--muted); }
+.social a:hover { color: var(--text); }
+.social svg { display: block; width: 2rem; height: 2rem; fill: currentColor; }
+@media (max-width: 480px) {
+  .social { column-gap: 0; justify-content: space-evenly; }
+  .social a { padding: 0.5rem; }
+}
+
+footer { max-width: 42rem; margin: 0 auto; padding: 3rem 1rem 2rem; font-size: 0.85rem; color: var(--muted); text-align: center; }
+footer p { margin: 1.5rem 0 0; }
+.top { position: relative; display: inline-block; padding: 1.45rem 1rem 0.7rem calc(1rem + 0.2em); border: 1px solid var(--rule); color: inherit; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; }
+.top::before { content: ""; position: absolute; top: 0.85rem; left: 50%; width: 0.42rem; height: 0.42rem; border-top: 1px solid; border-left: 1px solid; transform: translateX(-50%) rotate(45deg); } /* chevron, centred on the box */
+.top:hover { border-color: var(--muted); color: var(--text); }
+.top.circle { display: inline-grid; place-items: center; box-sizing: border-box; width: 4.25rem; height: 4.25rem; padding: 0.7rem 0 0 0.2em; border-radius: 50%; }
+.top.circle::before { top: 1.2rem; }
 </style>
 </head>
 <body>
@@ -137,7 +152,7 @@ footer { max-width: 42rem; margin: 0 auto; padding: 3rem 1rem 2rem; font-size: 0
   </header>
   <main class="wide">
     <h1>Portraits</h1>
-    <p>Portraits with natural light. To book a session, write to <a href="mailto:hoellin.photo@gmail.com">hoellin.photo@gmail.com</a>.</p>
+    <p>Natural light. To book a session, write to <a href="mailto:hoellin.photo@gmail.com">hoellin.photo@gmail.com</a>.</p>
 
 <div class="photos"><figure>
     <a href="/assets/img/photos/portraits/1.jpg" style="--ratio: 0.6668">
@@ -149,6 +164,9 @@ footer { max-width: 42rem; margin: 0 auto; padding: 3rem 1rem 2rem; font-size: 0
 
 
   </main>
-  <footer>© 2026 Tristan Hoellinger</footer>
+  <footer>
+    <a class="top circle" href="#top">Top</a>
+    <p>© 2026 Tristan Hoellinger</p>
+  </footer>
 </body>
 </html>
