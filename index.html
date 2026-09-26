@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tristan Hoellinger</title>
+  <meta name="description" content="Postdoctoral Fellow in Cosmology at NASA Jet Propulsion Laboratory (Caltech).">
+  <link rel="canonical" href="https://hoellin.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tristan Hoellinger">
+  <meta property="og:title" content="Tristan Hoellinger">
+  <meta property="og:description" content="Postdoctoral Fellow in Cosmology at NASA Jet Propulsion Laboratory (Caltech).">
+  <meta property="og:image" content="https://hoellin.github.io/assets/img/prof_pic.jpg">
+  <meta property="og:url" content="https://hoellin.github.io/">
+  <link rel="icon" href="/favicon.png">
+  <style>:root {
+  --bg: #fff;
+  --text: #1d1d1f;
+  --muted: #6b6b6b;
+  --link: #2a5d9f;
+  --rule: #e3e3e3;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #121212; --text: #e6e6e6; --muted: #a3a3a3; --link: #9cc3f5; --rule: #2c2c2c; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+html { font-size: 106.25%; }
+body {
+  margin: 0;
+  font: 1rem/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--link); text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-underline-offset: 0.15em; }
+a:hover { text-decoration-color: currentColor; }
+a.plain { color: inherit; } /* in Markdown: [text](url){:.plain} */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2.5rem 1rem;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+.hero.full { min-height: 100vh; min-height: 100svh; box-sizing: border-box; justify-content: flex-end; padding-bottom: 10vh; }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(rgb(0 0 0 / 0.3), rgb(0 0 0 / 0.65)); }
+.hero .bg { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+.hero:not(.full) .bg { object-position: 50% 0; height: 250%; } /* sky only: the subject stays below the banner */
+.hero:not(.full)::before { background: rgb(0 0 0 / 0.6); }
+/* Lift the subject above the name: enlarge the photo from its bottom edge, more on phones and short screens, whose card is compact.
+   The .bg sizes in _layouts/default.html follow the 250%, 140% and 160% heights and these breakpoints. */
+.hero.full .bg { top: auto; height: 140%; }
+@media (max-width: 480px), (max-height: 500px) {
+  .hero.full { padding-bottom: 5vh; }
+  .hero.full .bg { height: 160%; }
+  .hero.full .card { padding: 1rem 0; }
+  .hero.full .role { margin-top: 0.5rem; }
+}
+@media (max-height: 500px) {
+  .hero.full .name { font-size: 1.4rem; }
+}
+.hero a { color: inherit; text-decoration: none; }
+.card { width: min(36rem, 100%); padding: 1.75rem 0; border-block: 1px solid rgb(255 255 255 / 0.7); }
+.name, .role, .hero nav a, h1, h2 { text-transform: uppercase; }
+.name { margin: 0; padding-left: 0.3em; font-size: clamp(1.4rem, 5vw, 2.2rem); font-weight: 600; letter-spacing: 0.3em; }
+.hero:not(.full) .name { font-size: 1rem; }
+.role { margin: 1rem 0 0; padding-left: 0.2em; font-size: 0.75rem; letter-spacing: 0.2em; line-height: 2; }
+.hero nav { display: flex; flex-wrap: wrap; justify-content: center; }
+.hero nav a { margin: 0 -1px -1px 0; padding: 0.7rem 1rem 0.7rem calc(1rem + 0.2em); border: 1px solid rgb(255 255 255 / 0.7); font-size: 0.75rem; letter-spacing: 0.2em; }
+.hero nav a:hover, .hero nav a[aria-current] { background: rgb(255 255 255 / 0.15); }
+@media (max-width: 360px) {
+  .hero nav a { padding-inline: calc(0.6rem + 0.2em) 0.6rem; }
+}
+
+main { max-width: 42rem; margin: 0 auto; padding: 0 1rem; overflow-wrap: break-word; }
+main.wide { max-width: 64rem; }
+.wide > h1, .wide > p { text-align: center; }
+.wide > p { max-width: 42rem; margin-inline: auto; }
+main, .role { text-wrap: pretty; }
+h1, h2 { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.2em; }
+h1 { margin: 3rem 0 1rem; }
+h2 { margin: 3.5rem 0 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule); color: var(--muted); }
+h3 { margin: 1.75rem 0 0.75rem; font-size: 1rem; font-weight: 600; }
+p { margin: 0 0 1rem; }
+
+/* Profile photo with the address below: a column beside the text, centred above it on narrow screens.
+   The small shape is the first design: a small circle beside the text at every width, without the address. */
+.profile { float: right; width: 15rem; margin: 0.4rem 0 3.5rem 2rem; }
+.profile img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.profile.oval img { border-radius: 50%; }
+.profile.circle img { aspect-ratio: 1; border-radius: 50%; }
+.profile.small { width: 6.5rem; margin: 0.25rem 0 1rem 1.25rem; }
+.profile.small img { aspect-ratio: 1; border-radius: 50%; }
+.profile address { margin-top: 0.8rem; font-style: normal; font-size: calc(var(--address-size, 1) * 1rem); line-height: 1.55; color: var(--muted); }
+.profile address::first-line { color: var(--text); }
+h2 { clear: both; }
+@media (max-width: 700px) {
+  .profile:not(.small) { float: none; width: min(15rem, 75%); margin: 0 auto 2rem; text-align: center; }
+  .profile address { font-size: 0.9rem; }
+}
+.links, .meta, details, time { color: var(--muted); }
+.meta a { color: inherit; }
+.list { margin: 0; padding: 0; list-style: none; }
+.list li { margin: 0 0 1.1rem; }
+.list time { display: block; font-size: 0.85rem; }
+details { font-size: 0.92rem; }
+summary { cursor: pointer; }
+details p { margin: 0.5rem 0 0; }
+
+/* The sizes in _includes/photos.html follow main's width and padding and this 85vh. */
+.photos figure { margin: 2.5rem 0; }
+.photos a { display: block; margin: 0 auto; width: min(100%, 85vh * var(--ratio)); }
+.photos img { display: block; width: 100%; height: auto; }
+.photos figcaption { margin-top: 0.5rem; text-align: center; font-size: 0.9rem; color: var(--muted); }
+
+footer { max-width: 42rem; margin: 0 auto; padding: 3rem 1rem 2rem; font-size: 0.85rem; color: var(--muted); }
+.wide + footer { text-align: center; }
+</style>
+  <meta name="google-site-verification" content="bzYRiJydb-uuq4BCJRp0zRzBcc_DyiVnuL9914vjd0Y">
+  <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "Person", "name": "Tristan Hoellinger", "jobTitle": "Postdoctoral Fellow in Cosmology", "affiliation": {"@type": "Organization", "name": "NASA Jet Propulsion Laboratory (Caltech)"}, "url": "https://hoellin.github.io", "image": "https://hoellin.github.io/assets/img/prof_pic.jpg", "sameAs": ["https://orcid.org/0000-0003-0217-8542","https://scholar.google.com/citations?user=K4UO2eEAAAAJ","https://www.linkedin.com/in/tristan-hoellinger","https://github.com/hoellin"]}
+  </script>
+</head>
+<body>
+  <header class="hero full">
+    <img class="bg" src="/assets/img/photos/works/2.jpg" srcset="/assets/img/photos/works/2-800.jpg 800w, /assets/img/photos/works/2-1600.jpg 1600w, /assets/img/photos/works/2.jpg 2560w" sizes="(max-width: 480px) 240vh, (max-height: 500px) max(100vw, 240vh), max(100vw, 210vh)" alt="" fetchpriority="high">
+    <div class="card">
+      <h1 class="name">Tristan Hoellinger</h1>
+      <p class="role">Postdoctoral Fellow in Cosmology<br>NASA Jet Propulsion Laboratory (Caltech)</p>
+    </div>
+    <nav><a href="/#about">about</a><a href="/#publications">publications</a><a href="/#talks">talks</a><a href="/assets/pdf/tristan_hoellinger_cv.pdf">cv</a><a href="/photography/">photography</a></nav>
+  </header>
+  <main>
+    <h2 id="about">About</h2>
+
+<figure class="profile rectangle" style="--address-size: 1">
+  <img src="/assets/img/prof_pic.jpg" alt="Tristan Hoellinger" />
+  <address>Jet Propulsion Laboratory<br />California Institute of Technology<br />4800 Oak Grove Drive<br />Pasadena, CA 91109</address>
+</figure>
+
+<p>I am a cosmologist and applied mathematician interested in safely accelerating research with AI. I currently work as a Postdoctoral Fellow at <a href="https://www.jpl.nasa.gov">NASA Jet Propulsion Laboratory</a> (<a href="https://www.caltech.edu">Caltech</a>). 
+<!-- Additionally, I am a member of the [Aquila](https://www.aquila-consortium.org) and [Euclid](https://www.euclid-ec.org) consortia. --></p>
+
+<!-- Before moving to [JPL](https://www.jpl.nasa.gov), I completed my PhD at the [Institut d'Astrophysique de Paris](https://www.iap.fr/?langue=en) ([Sorbonne](https://www.sorbonne-universite.fr/en)) in 2026. Since then, my research aims at maximizing Stage-IV science. -->
+
+<p>My research aims at maximizing the science return of Stage-IV cosmological surveys.</p>
+
+<p>Besides chasing dark energy in my academic work, I enjoy chasing the unseen through <a href="/photography/">photography</a>.</p>
+
+<p class="links"><a href="mailto:hoellinger@jpl.nasa.gov">email</a>&nbsp;· <a href="https://orcid.org/0000-0003-0217-8542">ORCID</a>&nbsp;· <a href="https://scholar.google.com/citations?user=K4UO2eEAAAAJ">Google Scholar</a>&nbsp;· <a href="https://www.linkedin.com/in/tristan-hoellinger">LinkedIn</a>&nbsp;· <a href="https://github.com/hoellin">GitHub</a></p>
+
+<h2 id="news">News</h2>
+
+<ul class="list" role="list">
+  <li><time datetime="2026-09-28">28 September 2026</time> Joining <a href="https://www.jpl.nasa.gov">NASA Jet Propulsion Laboratory</a> (<a href="https://www.caltech.edu">Caltech</a>) as a Postdoctoral Fellow in Cosmology.</li>
+  <li><time datetime="2026-09-15">15 September 2026</time> Invited seminar on <em>Trustworthy AI for Cosmology</em> at <a href="https://scai.sorbonne-universite.fr">SCAI</a>, the Sorbonne Cluster for AI.</li>
+  <li><time datetime="2026-09-08">8 September 2026</time> Defended my PhD thesis, <a href="https://theses.fr/s383866" class="plain"><em>Implicit-Likelihood Cosmological Inference from Massive Galaxy Surveys: Accelerated Gravity Simulations &amp; Diagnostics of Systematic Effects</em></a>, at the <a href="https://www.iap.fr/?langue=en">Institut d’Astrophysique de Paris</a> (<a href="https://www.sorbonne-universite.fr/en">Sorbonne Université</a>).</li>
+</ul>
+
+<h2 id="publications">Publications</h2>
+
+<ul class="list" role="list">
+  <li>Diagnosing systematic effects using the inferred initial power spectrum<br /><span class="meta"><b>T.&nbsp;Hoellinger</b> and F.&nbsp;Leclercq. Astronomy &amp; Astrophysics 699, A224, 2025. <a href="https://doi.org/10.1051/0004-6361/202453416">doi</a>&nbsp;· <a href="https://arxiv.org/abs/2412.04443">arXiv</a>&nbsp;· <a href="https://github.com/hoellin/selfisys_public">code</a></span></li>
+  <li>A vorticity confinement correction for discontinuous Galerkin schemes applied to fluid flow problems<br /><span class="meta"><b>T.&nbsp;Hoellinger</b>, J.&#8209;B.&nbsp;Chapelier and L.&nbsp;Manueco. International Journal of Numerical Methods for Heat &amp; Fluid Flow 35, 3561, 2025. <a href="https://doi.org/10.1108/HFF-11-2024-0854">doi</a></span></li>
+  <li>Enhancer/gene relationships: Need for more reliable genome-wide reference sets<br /><span class="meta"><b>T.&nbsp;Hoellinger</b>, C.&nbsp;Mestre, H.&nbsp;Aschard, W.&nbsp;Le&nbsp;Goff, S.&nbsp;Foissac, T.&nbsp;Faraut and S.&nbsp;Djebali. Frontiers in Bioinformatics 3, 1092853, 2023. <a href="https://doi.org/10.3389/fbinf.2023.1092853">doi</a></span></li>
+  <li>Data-Driven Simulation for Augmented Surgery<br /><span class="meta">A.&nbsp;Mendizabal, E.&nbsp;Tagliabue, <b>T.&nbsp;Hoellinger</b>, J.&#8209;N.&nbsp;Brunet, S.&nbsp;Nikolaev and S.&nbsp;Cotin. Advanced Structured Materials 132, 71, 2020. <a href="https://doi.org/10.1007/978-3-030-50464-9_5">doi</a></span></li>
+</ul>
+
+<h2 id="talks">Talks</h2>
+
+<h3>Invited</h3>
+<ul class="list" role="list">
+  <li>Trustworthy AI for Cosmology: Auditable Inference and Hybrid Neural–Numerical Solvers<br /><span class="meta"><a href="https://scai.sorbonne-universite.fr/events/ai4science-seminar3">AI4Science seminar, Sorbonne Cluster for Artificial Intelligence (SCAI)</a>, Paris, France, September 2026.</span><details><summary>abstract</summary><p>Ongoing and future cosmological surveys map the large-scale structure of the Universe across immense volumes and with exquisite precision. Extracting robust information from these data requires fast, high-accuracy simulations and reliable statistical inference. Machine learning offers useful means of acceleration, but the resulting pipelines remain only as reliable as the models they contain. In this talk, I present two complementary approaches to controlling model error, with the aim of enabling trustworthy inference from high-accuracy forward models of galaxy surveys.</p>
+
+<p>First, I introduce a framework for diagnosing model misspecification in implicit-likelihood cosmological inference. It accommodates arbitrarily complex black-box forward models, provided that a sufficiently informative latent function is available. Using a forward model of a spectroscopic galaxy survey, I quantify how modelling errors in galaxy bias, selection functions, survey masks, redshifts, and gravitational evolution distort the reconstructed initial matter power spectrum after recombination. I further show that percent-level misspecification can shift cosmological constraints by more than 2σ in the (Ωₘ, σ₈) plane; the framework detects this failure before cosmological parameters are inferred.</p>
+
+<p>Second, I present tCOCA-P3M, a hybrid neural–numerical method for accelerating high-accuracy cosmological N-body simulations. The method supplements a perturbative moving frame with a machine-learnt momentum correction and uses a P3M solver to integrate the residual dynamics; equivalently, the numerical solver corrects the emulation error.</p>
+
+<p>Together, these methods provide complementary tools for reliable simulation-based inference and AI-accelerated numerical modelling.</p>
+</details></li>
+  <li>Implicit Likelihood Cosmological Inference: Simulations &amp; Diagnostics<br /><span class="meta"><a href="https://astro.unistra.fr/en/2025/09/23/seminaire-tristan-hoellinger-iap-13h00/">Seminar, Observatoire astronomique de Strasbourg</a>, Strasbourg, France, September 2025. <a href="https://cloud.aquila-consortium.org/s/Jrxy4XwWxB9jpR3">slides</a></span><details><summary>abstract</summary><p>Ongoing cosmological surveys map the large-scale structure of the Universe across immense volumes. Extracting robust cosmological information from these data requires fast, high-precision simulations of the survey observables and tight control of systematics.</p>
+
+<p>Part I: I present the first framework to detect and avoid model misspecification in implicit likelihood cosmological inference. Using the SELFI algorithm to infer the initial matter power spectrum from a forward model of galaxy surveys, I quantify the imprint of galaxy bias, selection functions, survey masks, redshift errors, and approximate gravity solvers. The analysis relies on a single, joint suite of N-body simulations, which we recycle for score compression prior to cosmological parameter inference. I further show that misspecification at the per-cent level can shift constraints by up to 2σ in (Ωₘ, σ₈)—biases that our framework exposes and avoids.</p>
+
+<p>Part II: I show that COLA need not sacrifice small-scale accuracy for speed. Combining fully non-linear Particle–Particle–Particle–Mesh (P3M) forces with the COLA change of frame, I obtain GADGET-4-level precision at significantly reduced cost compared with pure P3M. Together, these advances pave the way to making the most of Stage-IV surveys with implicit likelihood inference.</p>
+</details></li>
+  <li>Addressing Systematic Effects in Implicit Cosmological Inference<br /><span class="meta"><a href="https://www.okc.albanova.se/english/divisions/oskar-klein-centre/about-the-okc/cosmology-and-extragalactic-astrophysics-working-group">Cosmology &amp; Gravitation Seminar, Oskar Klein Centre</a>, Stockholm, Sweden, June 2025. <a href="https://cloud.aquila-consortium.org/s/RdZrtd9pe9jf53Q">slides</a></span><details><summary>abstract</summary><p>Ongoing galaxy surveys map the Universe’s large-scale structure with unprecedented fidelity across immense cosmological volumes. They promise to significantly deepen our understanding of the Universe, though this potential hinges on our ability to tackle systematic uncertainties. Until recently, this was beyond reach in implicit cosmological inference frameworks. In this talk, I present the first framework to uncover and correct model misspecification in field-based, implicit likelihood cosmological inference. Our approach proceeds in two steps. First, we infer the initial matter power spectrum using the SELFI algorithm, and use it to conduct a thorough simulation-based analysis of a range of systematic effects. This investigation relies on a single, joint suite of N-body simulations. Second, we perform implicit likelihood inference of cosmological parameters using a realistic forward model of a large-scale spectroscopic galaxy survey that incorporates non-linear gravitational evolution with N-body. I show how the SELFI posterior can be used to assess the impact of misspecified galaxy bias, selection functions, survey masks, and redshift errors on the reconstructed initial power spectrum. I further show that percent-order misspecification may shift constraints by as much as 2σ in the (Ωₘ, σ₈) plane—biases our framework can now expose and avoid. This marks a critical step towards robust cosmological inference from full forward models of galaxy surveys such as DESI, Euclid, and LSST.</p>
+</details></li>
+  <li>Lightening black-box models in field-based, implicit likelihood cosmological inference<br /><span class="meta"><a href="https://icc.ub.edu/research/cosmology-and-large-scale-structure">Cosmology Group Meeting, Institute of Cosmos Sciences (ICCUB)</a>, Barcelona, Spain, March 2025. <a href="https://cloud.aquila-consortium.org/s/X2FXKEXbG7QjpY4">slides</a></span><details><summary>abstract</summary><p>The next generation of galaxy surveys has the potential to significantly deepen our understanding of the Universe, though this potential hinges on our ability to rigorously address systematic uncertainties. In this talk, I present the first framework to uncover and correct model misspecification in field-based, implicit likelihood cosmological inference. Our approach is built upon a two-step framework. First, we employ the SELFI algorithm to infer the initial matter power spectrum, which we utilise to comprehensively investigate the impact of systematic effects. This investigation relies on a single, joint suite of N-body simulations. Second, we perform implicit likelihood inference of cosmological parameters using a realistic forward model of a large-scale spectroscopic galaxy survey that incorporates non-linear gravitational evolution with N-body. I show how the SELFI posterior can be used to assess the impact of misspecified galaxy bias, selection functions, survey masks, and redshift errors on the reconstructed initial power spectrum. I further show that percent-order misspecification can lead to a bias greater than 2σ in the (Ωₘ, σ₈) plane, which we are able to detect and avoid using SELFI prior to inferring the cosmological parameters. This framework has the potential to significantly enhance the robustness of physical information extraction from full forward models of large-scale galaxy surveys such as DESI, Euclid, and LSST.</p>
+</details></li>
+</ul>
+<h3>Contributed</h3>
+<ul class="list" role="list">
+  <li>Accurate Small-Scale Dynamics in COLA<br /><span class="meta"><a href="https://indico.iap.fr/event/25/overview">École de Physique des Houches: The Dark Universe</a>, Les Houches, France, July 2025. <a href="https://indico.iap.fr/event/25/contributions/252/attachments/149/198/hoellinger_Houches2025.pdf">slides</a></span><details><summary>abstract</summary><p>Ongoing galaxy surveys map the Universe’s large-scale structure with unprecedented fidelity across immense cosmological volumes. Cosmological inference at the field level demands thousands of N-body simulations. To fully exploit Stage-IV data, simulators must therefore produce fast, high-precision realisations spanning vast cosmological volumes and reaching deep into the non-linear regime. The COmoving Lagrangian Acceleration (COLA) algorithm accelerates large-scale cosmological simulations by decoupling the temporal evolution of large and small scales: large scales are evolved analytically using Lagrangian Perturbation Theory (LPT), while small scales are integrated numerically. Contrary to a common misconception, COLA does not inherently sacrifice small-scale accuracy for speed: the LPT change of frame of reference can be done with any force calculation technique. I show that accurate small-scale dynamics can be obtained at a tractable computational cost by employing Particle–Particle–Particle–Mesh (P3M) force evaluations within an LPT frame of reference, achieving the precision of tree-based codes down to scales of just a few particle lengths. This result is a significant advance towards fully harnessing the cosmological potential of Stage-IV galaxy surveys.</p>
+</details></li>
+  <li>Lightening black-box models in field-based implicit likelihood cosmological inference<br /><span class="meta"><a href="https://gestioneventos.us.es/x-meeting-fundamental-cosmology">X Meeting on Fundamental Cosmology</a>, Seville, Spain, October 2024. <a href="https://cloud.aquila-consortium.org/s/QebL6xRyCQK9M6r">slides</a></span><details><summary>abstract</summary><p>The next generation of galaxy surveys has the potential to significantly deepen our understanding of the Universe, though this potential hinges on our ability to rigorously address systematic uncertainties. This was previously beyond reach in field-based implicit likelihood cosmological inference frameworks. We aim at inferring the initial matter power spectrum after recombination to diagnose a variety of systematic effects in galaxy surveys prior to inferring the cosmological parameters. Our approach is built upon a two-step framework. First, we employ the SELFI algorithm to infer the initial matter power spectrum, which we utilise to comprehensively investigate and disentangle how systematic effects influence the power spectrum reconstruction, using a single set of N-body simulations. Second, we obtain posterior cosmological parameters via implicit likelihood inference, recycling the simulations from the first step for data compression. We rely on a model of large-scale spectroscopic galaxy surveys that incorporates fully non-linear gravitational evolution and simulates multiple systematic effects typically encountered in astrophysical surveys. We demonstrate along with a practical guide how the SELFI posterior can be utilised to thoroughly assess the impact of misspecified linear galaxy bias parameters, selection functions, survey masks and inaccurate redshifts on the initial power spectrum after recombination. We show that a subtly misspecified model can lead to a bias greater than 2σ in the (Ωₘ, σ₈) plane, which we are able to detect and avoid using SELFI prior to inferring the cosmological parameters. This framework has the potential to significantly enhance the robustness of physical information extraction from full forward models of large-scale galaxy surveys such as DESI, Euclid, and LSST.</p>
+</details></li>
+  <li>Implicit likelihood inference in cosmology while checking for survey systematics<br /><span class="meta"><a href="https://euclid-fr2023.sciencesconf.org">Euclid-France 12th Symposium</a>, Lyon, France, January 2024. <a href="https://cloud.aquila-consortium.org/s/fPtmYKL4a5MD7BC">slides</a></span><details><summary>abstract</summary><p>We present methodological advances to perform implicit likelihood inference of cosmology from arbitrarily complex models of galaxy surveys, while efficiently checking for systematics. This novel approach makes it possible to fully utilise our prior theoretical understanding of the initial matter power spectrum, in order to investigate the effects of known sources of systematics at play in the complex data generating process. It is currently being used for Additional Galaxy Clustering probes in preparation for the first Euclid data release.</p>
+</details></li>
+  <li>Implicit likelihood inference in cosmology while checking for survey systematics<br /><span class="meta"><a href="https://indico.in2p3.fr/event/29646/">Colloque national Action Dark Energy 2023</a>, Annecy, France, November 2023. <a href="https://cloud.aquila-consortium.org/s/TAQ7JyXy4JzQK2N">slides</a></span><details><summary>abstract</summary><p>We present methodological advances to perform implicit likelihood inference of cosmology from any forward model of galaxy surveys, while efficiently checking for systematics. The approach is based on a two-step framework, and does not require any inner knowledge of the forward data model. First, we use SELFI (Simulator expansion for likelihood-free inference) to infer the initial matter power spectrum from any probe, and we use it to check whether all systematics are correctly accounted for based on qualitative and quantitative criteria. Second, cosmological parameters are inferred using implicit likelihood inference. Simulations used in the first step are recycled for optimal data compression, which is required for the second step. We show that mis-modelled systematic effects that would result in a biased posterior are unambiguously detected before performing the inference of cosmological parameters. The method is currently being used for Additional Galaxy Clustering probes in preparation for the first Euclid data release.</p>
+</details></li>
+</ul>
+
+  </main>
+  <footer>© 2026 Tristan Hoellinger</footer>
+</body>
+</html>
