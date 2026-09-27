@@ -72,15 +72,18 @@ a.plain { color: inherit; } /* in Markdown: [text](url){:.plain} */
 }
 .hero a { color: inherit; text-decoration: none; }
 .card { width: min(36rem, 100%); padding: 1.75rem 0; border-block: 1px solid rgb(255 255 255 / 0.7); }
-.name, .role, .hero nav a, h1, h2 { text-transform: uppercase; }
+.name, .role, .hero nav a, .hero nav button, h1, h2 { text-transform: uppercase; }
 .name { margin: 0; padding-left: 0.3em; font-size: clamp(1.4rem, 5vw, 2.2rem); font-weight: 600; letter-spacing: 0.3em; }
 .hero:not(.full) .name { font-size: 1rem; }
 .role { margin: 1rem 0 0; padding-left: 0.2em; font-size: 0.75rem; letter-spacing: 0.2em; line-height: 2; }
+@media (min-width: 701px) and (min-height: 501px) {
+  .role { font-size: calc(var(--role-size, 1) * 0.75rem); } /* role_size in _config.yml */
+}
 .hero nav { display: flex; flex-wrap: wrap; justify-content: center; }
-.hero nav a { margin: 0 -1px -1px 0; padding: 0.7rem 1rem 0.7rem calc(1rem + 0.2em); border: 1px solid rgb(255 255 255 / 0.7); font-size: 0.75rem; letter-spacing: 0.2em; }
+.hero nav a, .hero nav button { margin: 0 -1px -1px 0; padding: 0.7rem 1rem 0.7rem calc(1rem + 0.2em); border: 1px solid rgb(255 255 255 / 0.7); font-size: 0.75rem; letter-spacing: 0.2em; }
 .hero nav a[aria-current] { background: rgb(255 255 255 / 0.15); }
 @media (max-width: 360px) {
-  .hero nav a { padding-inline: calc(0.6rem + 0.2em) 0.6rem; }
+  .hero nav a, .hero nav button { padding-inline: calc(0.6rem + 0.2em) 0.6rem; }
 }
 
 main { max-width: 42rem; margin: 0 auto; padding: 0 1rem; }
@@ -121,6 +124,8 @@ details p { margin: 0.5rem 0 0; }
 .photos a { display: block; margin: 0 auto; width: min(100%, 85vh * var(--ratio)); }
 .photos img { display: block; width: 100%; height: auto; }
 .photos figcaption { margin-top: 0.5rem; text-align: center; font-size: 0.9rem; color: var(--muted); }
+.pdf a { width: 100%; }
+.pdf img { background: #fff; box-shadow: 0 0 0 1px var(--rule); forced-color-adjust: none; } /* black text stays on white */
 
 .social { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25rem 1.25rem; margin: 4rem 0 0; padding: 0; list-style: none; }
 .social a { display: block; padding: 0.6rem; color: var(--muted); }
@@ -139,9 +144,81 @@ footer p { margin: 1.5rem 0 0; }
 
 @media (hover: hover) {
   a:hover { text-decoration-color: currentColor; }
-  .hero nav a:hover { background: rgb(255 255 255 / 0.15); }
+  .hero nav a:hover, .hero nav button:hover { background: rgb(255 255 255 / 0.15); }
   .social a:hover { color: var(--text); }
   .top:hover { border-color: var(--muted); color: var(--text); }
+}
+/* Photo bands (bands in _config.yml): strips of one photo between the sections. As on pmsutter.com, the photo moves behind a strip at
+   a fifth of the scroll speed, so a strip crossing the screen shows a part of it 80vh + a fifth of the strip tall (--part). The photo is
+   --parts parts tall; strip --index (from 0) shows the part below the previous strip's. A strip spans the page width: absolute, on the
+   initial containing block. */
+.band { --strip: min(40vh, 60vw); --part: calc(80vh + var(--strip) / 5); --shift: calc(var(--index) * var(--part)); clear: both; height: var(--strip); margin: 3.5rem 0; }
+.band > div { position: absolute; left: 0; right: 0; height: var(--strip); overflow: clip; view-timeline: --band; }
+.band img { display: block; width: 100%; height: calc(var(--parts) * var(--part)); object-fit: cover; translate: 0 calc(var(--strip) * 0.4 - 40vh - var(--shift)); } /* where it is when the strip is mid-screen; kept without motion */
+.band .top { position: absolute; top: 50%; left: 50%; translate: -50% -50%; border-color: rgb(255 255 255 / 0.7); color: #fff; background: rgb(0 0 0 / 0.45); backdrop-filter: blur(0.5rem); } /* legible on any part of the photo */
+@media (hover: hover) {
+  .band .top:hover { background: rgb(0 0 0 / 0.6); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .band img { animation: drift linear both; animation-timeline: --band; }
+  }
+}
+/* From the strip's entry to its exit, the photo moves down by 0.8 of the strip's travel, its part's top row reaching the strip's top
+   when the strip reaches the screen's top. */
+@keyframes drift { from { translate: 0 calc(-80vh - var(--shift)); } to { translate: 0 calc(var(--strip) * 0.8 - var(--shift)); } }
+@media print {
+  .band { display: none; }
+}
+/* The CV over the page (cv_overlay in _config.yml), after amaury-micheli.github.io: the page zooms in slightly and blurs, then the CV
+   fades in; closing runs the other way. */
+.hero nav button { font-family: inherit; font-weight: inherit; line-height: inherit; color: inherit; background: none; cursor: pointer; }
+.hero nav .cv-page { display: none; }
+@supports not selector(:popover-open) { /* browsers without popovers: the cv item opens the CV page */
+  .hero nav .cv-page { display: block; }
+  .hero nav button, #cv-overlay { display: none; }
+}
+html, body { overflow-x: clip; } /* the zoomed page must not widen the screen, a phone's included */
+html:has(#cv-overlay:popover-open) { overflow: hidden; }
+body:has(#cv-overlay:popover-open) .page { pointer-events: none; interactivity: inert; } /* a click beside the CV only closes it; keys stay in it */
+@media screen and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .page { transition: transform 0.325s ease-in-out 0.325s; animation: centre linear both; animation-timeline: view(); }
+    body:has(#cv-overlay:popover-open) .page { transform: scale(1.0825); transition-delay: 0s; }
+  }
+}
+@keyframes centre { from { transform-origin: 50% -50vh; } to { transform-origin: 50% calc(100% + 50vh); } } /* the middle of the screen */
+#cv-overlay { box-sizing: border-box; flex-direction: column; width: min(100%, 66rem); height: 100%; margin: 0 auto; padding: 0 1rem 3rem; border: 0; overflow: hidden; color: #fff; background: none; opacity: 0; translate: 0 0.25rem; transition: opacity 0.325s ease-in-out, translate 0.325s ease-in-out, display 0.65s allow-discrete, overlay 0.65s allow-discrete; }
+#cv-overlay:popover-open { display: flex; opacity: 1; translate: 0; transition-delay: 0.325s, 0.325s, 0s, 0s; }
+#cv-overlay::backdrop { background: rgb(0 0 0 / 0); backdrop-filter: blur(0); transition: background-color 0.325s ease-in-out 0.325s, backdrop-filter 0.325s ease-in-out 0.325s, display 0.65s allow-discrete, overlay 0.65s allow-discrete; }
+#cv-overlay:popover-open::backdrop { background: rgb(0 0 0 / 0.65); backdrop-filter: blur(0.2rem); transition-delay: 0s; }
+@starting-style {
+  #cv-overlay:popover-open { opacity: 0; translate: 0 0.25rem; }
+  #cv-overlay:popover-open::backdrop { background: rgb(0 0 0 / 0); backdrop-filter: blur(0); }
+}
+@supports not (overlay: auto) { /* browsers that drop the CV from the top layer at once: close at once */
+  #cv-overlay:not(:popover-open) { transition: none; }
+  .page { transition-delay: 0s; }
+}
+#cv-overlay h2 { margin: 3rem 0 1rem; padding: 0; border: 0; color: inherit; text-align: center; }
+#cv-overlay > p { margin: 0 0 2rem; text-align: center; }
+#cv-overlay .pdf { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; outline: none; } /* only the sheets scroll; focused on opening, for the keys */
+#cv-overlay .pdf { flex: 0 1 auto; border: 7px solid rgb(255 255 255 / 0.5); border-radius: 12px; } /* cv_frame: the width and grey of the macOS scroll bar, hugging the sheets when they all fit */
+@media (pointer: coarse) {
+  #cv-overlay .pdf { border-width: 3px; border-radius: 8px; } /* as a phone's scroll bar */
+}
+#cv-overlay figure { margin: 0 0 2.5rem; }
+#cv-overlay figure:last-child { margin: 0; }
+#cv-overlay a { color: inherit; }
+#cv-overlay .close, #cv-overlay .pdf a { outline-offset: -0.25rem; } /* focus rings inside, not clipped */
+#cv-overlay .close { position: absolute; top: 0; right: 0; width: 4rem; height: 4rem; padding: 0; border: 0; color: inherit; background: none; cursor: pointer; }
+#cv-overlay .close::before, #cv-overlay .close::after { content: ""; position: absolute; top: 50%; left: 50%; width: 1.25rem; border-top: 1px solid; translate: -50% -50%; rotate: 45deg; } /* a cross */
+#cv-overlay .close::after { rotate: -45deg; }
+@media (hover: hover) {
+  #cv-overlay .close:hover { background: rgb(255 255 255 / 0.15); }
+}
+@media print {
+  #cv-overlay:popover-open { display: none; } /* the page prints as when the CV is closed */
 }
 </style>
   <meta name="google-site-verification" content="bzYRiJydb-uuq4BCJRp0zRzBcc_DyiVnuL9914vjd0Y">
@@ -150,13 +227,14 @@ footer p { margin: 1.5rem 0 0; }
   </script>
 </head>
 <body id="top">
+  <div class="page">
   <header class="hero full">
     <img class="bg" src="/assets/img/photos/hero/silhouette.jpg" srcset="/assets/img/photos/hero/silhouette-800.jpg 800w, /assets/img/photos/hero/silhouette-1600.jpg 1600w, /assets/img/photos/hero/silhouette.jpg 2560w" sizes="(max-width: 480px) 240vh, (max-height: 500px) max(100vw, 240vh), max(100vw, 210vh)" alt="" fetchpriority="high">
     <div class="card">
       <h1 class="name">Tristan Hoellinger</h1>
-      <p class="role">Postdoctoral Fellow in Cosmology<br>NASA Jet Propulsion Laboratory (Caltech)</p>
+      <p class="role" style="--role-size: 1.2">Postdoctoral Fellow in Cosmology<br>NASA Jet Propulsion Laboratory (Caltech)</p>
     </div>
-    <nav><a href="/#about">about</a><a href="/#publications">publications</a><a href="/#talks">talks</a><a href="/assets/pdf/tristan_hoellinger_cv.pdf">cv</a><a href="/photography/">photo</a></nav>
+    <nav><a href="/#about">about</a><a href="/#publications">publications</a><a href="/#talks">talks</a><button type="button" popovertarget="cv-overlay">cv</button><a class="cv-page" href="/cv/">cv</a><a href="/photography/">photo</a></nav>
   </header>
   <main>
     <h2 id="about">About</h2>
@@ -166,32 +244,15 @@ footer p { margin: 1.5rem 0 0; }
   <address><span><a href="https://www.jpl.nasa.gov" target="_blank" rel="noopener">Jet Propulsion Laboratory</a></span><br /><span>California Institute of Technology</span><br /><span>4800 Oak Grove Drive</span><br /><span>Pasadena, CA 91109</span></address>
 </figure>
 
-<p>I am a cosmologist and applied mathematician, interested in accelerating science discovery with AI. I currently work as a postdoctoral Fellow at <a href="https://www.jpl.nasa.gov" target="_blank" rel="noopener">NASA Jet Propulsion Laboratory</a> (<a href="https://www.caltech.edu" target="_blank" rel="noopener">Caltech</a>).</p>
+<p>I am a postdoctoral Fellow in cosmology at <a href="https://www.jpl.nasa.gov" target="_blank" rel="noopener">NASA Jet Propulsion Laboratory</a> (<a href="https://www.caltech.edu" target="_blank" rel="noopener">Caltech</a>), where I work on accelerating science discovery with AI.</p>
 
-<p>My academic research aims at maximizing the science return of Stage-IV cosmological surveys.</p>
-
-<p>Besides chasing dark energy, I enjoy chasing the unseen through <a href="/photography/">photography</a>.</p>
+<p>Besides dark energy, I enjoy chasing the unseen through <a href="/photography/">photography</a>.</p>
 
 <p class="links"><a href="https://orcid.org/0000-0003-0217-8542" target="_blank" rel="noopener">ORCID</a>&nbsp;· <a href="https://scholar.google.com/citations?user=K4UO2eEAAAAJ" target="_blank" rel="noopener">Google Scholar</a>&nbsp;· <a href="https://www.linkedin.com/in/tristan-hoellinger" target="_blank" rel="noopener">LinkedIn</a>&nbsp;· <a href="https://github.com/hoellin" target="_blank" rel="noopener">GitHub</a></p>
 
-<h2 id="news">News</h2>
+<div class="band" style="--index: 0; --parts: 2"><div><img src="/assets/img/photos/bands/icecave.jpg" srcset="/assets/img/photos/bands/icecave-800.jpg 800w, /assets/img/photos/bands/icecave-1600.jpg 1600w, /assets/img/photos/bands/icecave-2560.jpg 2560w, /assets/img/photos/bands/icecave.jpg 4000w" sizes="(max-aspect-ratio: 704000/266700) 264vh, 100vw" style="object-position: 55% 50%" alt="" loading="lazy" decoding="async" /><a class="top circle" href="#top">Top</a></div></div>
 
-<ul class="list" role="list">
-  <li><time datetime="2026-09-28">28 September 2026</time> Joining <a href="https://www.jpl.nasa.gov" target="_blank" rel="noopener">NASA Jet Propulsion Laboratory</a> (<a href="https://www.caltech.edu" target="_blank" rel="noopener">Caltech</a>) as a Postdoctoral Fellow in Cosmology.</li>
-  <li><time datetime="2026-09-15">15 September 2026</time> Invited seminar on <em>Trustworthy AI for Cosmology</em> at <a href="https://scai.sorbonne-universite.fr" target="_blank" rel="noopener">SCAI</a>, the Sorbonne Cluster for AI.</li>
-  <li><time datetime="2026-09-08">8 September 2026</time> Defended my PhD thesis, <a href="https://theses.fr/s383866" class="plain" target="_blank" rel="noopener"><em>Implicit-Likelihood Cosmological Inference from Massive Galaxy Surveys: Accelerated Gravity Simulations &amp; Diagnostics of Systematic Effects</em></a>, at the <a href="https://www.iap.fr/?langue=en" target="_blank" rel="noopener">Institut d’Astrophysique de Paris</a> (<a href="https://www.sorbonne-universite.fr/en" target="_blank" rel="noopener">Sorbonne Université</a>).</li>
-</ul>
-
-<h2 id="publications">Publications</h2>
-
-<ul class="list" role="list">
-  <li>Diagnosing systematic effects using the inferred initial power spectrum<br /><span class="meta"><b>T.&nbsp;Hoellinger</b> and F.&nbsp;Leclercq. Astronomy &amp; Astrophysics 699, A224, 2025. <a href="https://doi.org/10.1051/0004-6361/202453416" target="_blank" rel="noopener">doi</a>&nbsp;· <a href="https://arxiv.org/abs/2412.04443" target="_blank" rel="noopener">arXiv</a>&nbsp;· <a href="https://github.com/hoellin/selfisys_public" target="_blank" rel="noopener">code</a></span></li>
-  <li>A vorticity confinement correction for discontinuous Galerkin schemes applied to fluid flow problems<br /><span class="meta"><b>T.&nbsp;Hoellinger</b>, J.&#8209;B.&nbsp;Chapelier and L.&nbsp;Manueco. International Journal of Numerical Methods for Heat &amp; Fluid Flow 35, 3561, 2025. <a href="https://doi.org/10.1108/HFF-11-2024-0854" target="_blank" rel="noopener">doi</a></span></li>
-  <li>Enhancer/gene relationships: Need for more reliable genome-wide reference sets<br /><span class="meta"><b>T.&nbsp;Hoellinger</b>, C.&nbsp;Mestre, H.&nbsp;Aschard, W.&nbsp;Le&nbsp;Goff, S.&nbsp;Foissac, T.&nbsp;Faraut and S.&nbsp;Djebali. Frontiers in Bioinformatics 3, 1092853, 2023. <a href="https://doi.org/10.3389/fbinf.2023.1092853" target="_blank" rel="noopener">doi</a></span></li>
-  <li>Data-Driven Simulation for Augmented Surgery<br /><span class="meta">A.&nbsp;Mendizabal, E.&nbsp;Tagliabue, <b>T.&nbsp;Hoellinger</b>, J.&#8209;N.&nbsp;Brunet, S.&nbsp;Nikolaev and S.&nbsp;Cotin. Advanced Structured Materials 132, 71, 2020. <a href="https://doi.org/10.1007/978-3-030-50464-9_5" target="_blank" rel="noopener">doi</a></span></li>
-</ul>
-
-<h2 id="talks">Selected Talks</h2>
+<h2 id="talks">Talks</h2>
 
 <h3>Invited</h3>
 <ul class="list" role="list">
@@ -226,6 +287,25 @@ footer p { margin: 1.5rem 0 0; }
 </details></li>
 </ul>
 
+<div class="band" style="--index: 1; --parts: 2"><div><img src="/assets/img/photos/bands/icecave.jpg" srcset="/assets/img/photos/bands/icecave-800.jpg 800w, /assets/img/photos/bands/icecave-1600.jpg 1600w, /assets/img/photos/bands/icecave-2560.jpg 2560w, /assets/img/photos/bands/icecave.jpg 4000w" sizes="(max-aspect-ratio: 704000/266700) 264vh, 100vw" style="object-position: 55% 50%" alt="" loading="lazy" decoding="async" /><a class="top circle" href="#top">Top</a></div></div>
+
+<h2 id="news">News</h2>
+
+<ul class="list" role="list">
+  <li><time datetime="2026-09-28">28 September 2026</time> Joining <a href="https://www.jpl.nasa.gov" target="_blank" rel="noopener">NASA Jet Propulsion Laboratory</a> (<a href="https://www.caltech.edu" target="_blank" rel="noopener">Caltech</a>) as a Postdoctoral Fellow in Cosmology.</li>
+  <li><time datetime="2026-09-15">15 September 2026</time> Invited seminar on <em>Trustworthy AI for Cosmology</em> at <a href="https://scai.sorbonne-universite.fr" target="_blank" rel="noopener">SCAI</a>, the Sorbonne Cluster for AI.</li>
+  <li><time datetime="2026-09-08">8 September 2026</time> Defended my PhD thesis, <a href="https://theses.fr/s383866" class="plain" target="_blank" rel="noopener"><em>Implicit-Likelihood Cosmological Inference from Massive Galaxy Surveys: Accelerated Gravity Simulations &amp; Diagnostics of Systematic Effects</em></a>, at the <a href="https://www.iap.fr/?langue=en" target="_blank" rel="noopener">Institut d’Astrophysique de Paris</a> (<a href="https://www.sorbonne-universite.fr/en" target="_blank" rel="noopener">Sorbonne Université</a>).</li>
+</ul>
+
+<h2 id="publications">Publications</h2>
+
+<ul class="list" role="list">
+  <li>Diagnosing systematic effects using the inferred initial power spectrum<br /><span class="meta"><b>T.&nbsp;Hoellinger</b> and F.&nbsp;Leclercq. Astronomy &amp; Astrophysics 699, A224, 2025. <a href="https://doi.org/10.1051/0004-6361/202453416" target="_blank" rel="noopener">doi</a>&nbsp;· <a href="https://arxiv.org/abs/2412.04443" target="_blank" rel="noopener">arXiv</a>&nbsp;· <a href="https://github.com/hoellin/selfisys_public" target="_blank" rel="noopener">code</a></span></li>
+  <li>A vorticity confinement correction for discontinuous Galerkin schemes applied to fluid flow problems<br /><span class="meta"><b>T.&nbsp;Hoellinger</b>, J.&#8209;B.&nbsp;Chapelier and L.&nbsp;Manueco. International Journal of Numerical Methods for Heat &amp; Fluid Flow 35, 3561, 2025. <a href="https://doi.org/10.1108/HFF-11-2024-0854" target="_blank" rel="noopener">doi</a></span></li>
+  <li>Enhancer/gene relationships: Need for more reliable genome-wide reference sets<br /><span class="meta"><b>T.&nbsp;Hoellinger</b>, C.&nbsp;Mestre, H.&nbsp;Aschard, W.&nbsp;Le&nbsp;Goff, S.&nbsp;Foissac, T.&nbsp;Faraut and S.&nbsp;Djebali. Frontiers in Bioinformatics 3, 1092853, 2023. <a href="https://doi.org/10.3389/fbinf.2023.1092853" target="_blank" rel="noopener">doi</a></span></li>
+  <li>Data-Driven Simulation for Augmented Surgery<br /><span class="meta">A.&nbsp;Mendizabal, E.&nbsp;Tagliabue, <b>T.&nbsp;Hoellinger</b>, J.&#8209;N.&nbsp;Brunet, S.&nbsp;Nikolaev and S.&nbsp;Cotin. Advanced Structured Materials 132, 71, 2020. <a href="https://doi.org/10.1007/978-3-030-50464-9_5" target="_blank" rel="noopener">doi</a></span></li>
+</ul>
+
     <ul class="social" role="list">
       <li><a href="https://orcid.org/0000-0003-0217-8542" title="ORCID" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z"/></svg></a></li>
       <li><a href="https://scholar.google.com/citations?user=K4UO2eEAAAAJ" title="Google Scholar" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg></a></li>
@@ -237,5 +317,22 @@ footer p { margin: 1.5rem 0 0; }
     <a class="top circle" href="#top">Top</a>
     <p>© 2026 Tristan Hoellinger</p>
   </footer>
+  </div>
+  <div id="cv-overlay" popover role="dialog" aria-labelledby="cv-overlay-title">
+    <button class="close" type="button" popovertarget="cv-overlay" popovertargetaction="hide" aria-label="Close"></button>
+    <h2 id="cv-overlay-title">Curriculum vitae</h2>
+    <p>Also as a <a href="/assets/pdf/tristan_hoellinger_cv.pdf">PDF</a>.</p>
+<div class="photos pdf" tabindex="-1" autofocus><figure>
+    <a href="/assets/pdf/tristan_hoellinger_cv.pdf">
+      <img src="/assets/pdf/tristan_hoellinger_cv-92b0d68fe2d8-1.svg" width="612" height="792" alt="Curriculum vitae, page 1 of 2" loading="lazy">
+    </a>
+  </figure><figure>
+    <a href="/assets/pdf/tristan_hoellinger_cv.pdf">
+      <img src="/assets/pdf/tristan_hoellinger_cv-92b0d68fe2d8-2.svg" width="612" height="792" alt="Curriculum vitae, page 2 of 2" loading="lazy">
+    </a>
+  </figure></div>
+
+  </div>
+
 </body>
 </html>
