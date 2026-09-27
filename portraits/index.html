@@ -35,9 +35,10 @@ body {
   color: var(--text);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-wrap: break-word;
 }
 a { color: var(--link); text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-underline-offset: 0.15em; }
-a:hover { text-decoration-color: currentColor; }
 a.plain { color: inherit; } /* in Markdown: [text](url){:.plain} */
 
 .hero {
@@ -46,7 +47,6 @@ a.plain { color: inherit; } /* in Markdown: [text](url){:.plain} */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 1.5rem;
   padding: 2.5rem 1rem;
   color: #fff;
@@ -55,10 +55,10 @@ a.plain { color: inherit; } /* in Markdown: [text](url){:.plain} */
 }
 .hero.full { min-height: 100vh; min-height: 100svh; box-sizing: border-box; justify-content: flex-end; padding-bottom: 10vh; }
 .hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(rgb(0 0 0 / 0.3), rgb(0 0 0 / 0.65)); }
-.hero .bg { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+.hero .bg { position: absolute; inset: 0; z-index: -2; width: 100%; object-fit: cover; }
 .hero:not(.full) .bg { object-position: 50% 0; height: 250%; } /* sky only: the subject stays below the banner */
 .hero:not(.full)::before { background: rgb(0 0 0 / 0.6); }
-/* Lift the subject above the name: enlarge the photo from its bottom edge, more on phones and short screens, whose card is compact.
+/* Lift the subject above the name: enlarge the photo from its bottom edge, more on phones and short screens.
    The .bg sizes in _layouts/default.html follow the 250%, 140% and 160% heights and these breakpoints. */
 .hero.full .bg { top: auto; height: 140%; }
 @media (max-width: 480px), (max-height: 500px) {
@@ -78,12 +78,12 @@ a.plain { color: inherit; } /* in Markdown: [text](url){:.plain} */
 .role { margin: 1rem 0 0; padding-left: 0.2em; font-size: 0.75rem; letter-spacing: 0.2em; line-height: 2; }
 .hero nav { display: flex; flex-wrap: wrap; justify-content: center; }
 .hero nav a { margin: 0 -1px -1px 0; padding: 0.7rem 1rem 0.7rem calc(1rem + 0.2em); border: 1px solid rgb(255 255 255 / 0.7); font-size: 0.75rem; letter-spacing: 0.2em; }
-.hero nav a:hover, .hero nav a[aria-current] { background: rgb(255 255 255 / 0.15); }
+.hero nav a[aria-current] { background: rgb(255 255 255 / 0.15); }
 @media (max-width: 360px) {
   .hero nav a { padding-inline: calc(0.6rem + 0.2em) 0.6rem; }
 }
 
-main { max-width: 42rem; margin: 0 auto; padding: 0 1rem; overflow-wrap: break-word; }
+main { max-width: 42rem; margin: 0 auto; padding: 0 1rem; }
 main.wide { max-width: 64rem; }
 .wide > h1, .wide > p { text-align: center; }
 .wide > p { max-width: 42rem; margin-inline: auto; }
@@ -94,16 +94,13 @@ h2 { margin: 3.5rem 0 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid 
 h3 { margin: 1.75rem 0 0.75rem; font-size: 1rem; font-weight: 600; }
 p { margin: 0 0 1rem; }
 
-/* Profile photo with the address below: a column beside the text, centred above it on narrow screens.
-   The small shape is the first design: a small circle beside the text at every width, without the address. */
 .profile { float: right; width: 15rem; margin: 0.4rem 0 3.5rem 2rem; }
 .profile img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 .profile.oval img { border-radius: 50%; }
-.profile.circle img { aspect-ratio: 1; border-radius: 50%; }
+.profile.circle img, .profile.small img { aspect-ratio: 1; border-radius: 50%; }
 .profile.small { width: 6.5rem; margin: 0.25rem 0 1rem 1.25rem; }
-.profile.small img { aspect-ratio: 1; border-radius: 50%; }
 .profile address { margin-top: 0.8rem; font-style: normal; font-size: calc(var(--address-size, 1) * 1rem); line-height: 1.55; color: var(--muted); }
-.profile address::first-line { color: var(--text); }
+.profile address span:first-child { color: var(--text); }
 .profile address a { color: inherit; text-decoration: none; }
 h2 { clear: both; }
 @media (max-width: 700px) {
@@ -125,10 +122,8 @@ details p { margin: 0.5rem 0 0; }
 .photos img { display: block; width: 100%; height: auto; }
 .photos figcaption { margin-top: 0.5rem; text-align: center; font-size: 0.9rem; color: var(--muted); }
 
-/* The links again, as icons, at the bottom of the home page (social_icons in _config.yml). */
 .social { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25rem 1.25rem; margin: 4rem 0 0; padding: 0; list-style: none; }
 .social a { display: block; padding: 0.6rem; color: var(--muted); }
-.social a:hover { color: var(--text); }
 .social svg { display: block; width: 2rem; height: 2rem; fill: currentColor; }
 @media (max-width: 480px) {
   .social { column-gap: 0; justify-content: space-evenly; }
@@ -138,15 +133,21 @@ details p { margin: 0.5rem 0 0; }
 footer { max-width: 42rem; margin: 0 auto; padding: 3rem 1rem 2rem; font-size: 0.85rem; color: var(--muted); text-align: center; }
 footer p { margin: 1.5rem 0 0; }
 .top { position: relative; display: inline-block; padding: 1.45rem 1rem 0.7rem calc(1rem + 0.2em); border: 1px solid var(--rule); color: inherit; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; }
-.top::before { content: ""; position: absolute; top: 0.85rem; left: 50%; width: 0.42rem; height: 0.42rem; border-top: 1px solid; border-left: 1px solid; transform: translateX(-50%) rotate(45deg); } /* chevron, centred on the box */
-.top:hover { border-color: var(--muted); color: var(--text); }
+.top::before { content: ""; position: absolute; top: 0.85rem; left: 50%; width: 0.42rem; height: 0.42rem; border-top: 1px solid; border-left: 1px solid; transform: translateX(-50%) rotate(45deg); } /* chevron */
 .top.circle { display: inline-grid; place-items: center; box-sizing: border-box; width: 4.25rem; height: 4.25rem; padding: 0.7rem 0 0 0.2em; border-radius: 50%; }
 .top.circle::before { top: 1.2rem; }
+
+@media (hover: hover) {
+  a:hover { text-decoration-color: currentColor; }
+  .hero nav a:hover { background: rgb(255 255 255 / 0.15); }
+  .social a:hover { color: var(--text); }
+  .top:hover { border-color: var(--muted); color: var(--text); }
+}
 </style>
 </head>
-<body>
+<body id="top">
   <header class="hero">
-    <img class="bg" src="/assets/img/photos/works/2.jpg" srcset="/assets/img/photos/works/2-800.jpg 800w, /assets/img/photos/works/2-1600.jpg 1600w, /assets/img/photos/works/2.jpg 2560w" sizes="max(100vw, 54rem)" alt="" fetchpriority="high">
+    <img class="bg" src="/assets/img/photos/hero/silhouette.jpg" srcset="/assets/img/photos/hero/silhouette-800.jpg 800w, /assets/img/photos/hero/silhouette-1600.jpg 1600w, /assets/img/photos/hero/silhouette.jpg 2560w" sizes="max(100vw, 54rem)" alt="" fetchpriority="high">
     <a class="name" href="/">Tristan Hoellinger</a>
     <nav><a href="/#about">about</a><a href="/#publications">publications</a><a href="/#talks">talks</a><a href="/assets/pdf/tristan_hoellinger_cv.pdf">cv</a><a href="/photography/" aria-current="true">photo</a></nav>
   </header>
