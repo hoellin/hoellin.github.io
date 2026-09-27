@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Photography · Tristan M.C. Hoellinger</title>
-  <meta name="description" content="Space and shadows. One photo at a time.">
+  <meta name="description" content="One photo at a time.">
   <link rel="canonical" href="https://hoellin.github.io/photography/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Tristan Hoellinger">
   <meta property="og:title" content="Photography">
-  <meta property="og:description" content="Space and shadows. One photo at a time.">
+  <meta property="og:description" content="One photo at a time.">
   <meta property="og:image" content="https://hoellin.github.io/assets/img/photos/works/2.jpg">
   <meta property="og:url" content="https://hoellin.github.io/photography/">
   <link rel="icon" href="/favicon.png">
@@ -148,39 +148,6 @@ footer p { margin: 1.5rem 0 0; }
   .social a:hover { color: var(--text); }
   .top:hover { border-color: var(--muted); color: var(--text); }
 }
-/* Closing photo (closing in _config.yml): the screen height less 9.2rem for the Top button and copyright, cropped no wider than 2:1 and no taller than 1:1.7. */
-@media screen {
-  .closing {
-    container-type: inline-size;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
-    min-height: 100vh;
-    max-width: none;
-    margin-top: 4rem;
-    padding-top: 0;
-    color: rgb(255 255 255 / 0.7);
-    background: #000;
-    box-shadow: 0 1px #000; /* no hairline of page colour below it at the end of the page */
-  }
-  .closing img {
-    --side: min(8rem, 100cqw + 2rem - 100%); /* side fade, only where the photo is narrower than the page */
-    width: min(100% + 2rem, 2 * (100vh - 9.2rem));
-    height: min(100vh - 9.2rem, 170vw);
-    margin: 0 -1rem auto;
-    object-fit: cover;
-    mask-image: linear-gradient(#000 calc(100% - 4rem), transparent), linear-gradient(90deg, transparent, #000 var(--side), #000 calc(100% - var(--side)), transparent);
-    mask-composite: intersect;
-  }
-  .closing .top { border-color: rgb(255 255 255 / 0.7); color: #fff; }
-}
-@media screen and (hover: hover) {
-  .closing .top:hover { background: rgb(255 255 255 / 0.15); }
-}
-@media print {
-  .closing img { display: none; }
-}
 /* The CV over the page (cv_overlay in _config.yml), after amaury-micheli.github.io: the page zooms in slightly and blurs, then the CV
    fades in; closing runs the other way. */
 .hero nav button { font-family: inherit; font-weight: inherit; line-height: inherit; color: inherit; background: none; cursor: pointer; }
@@ -242,7 +209,7 @@ body:has(#cv-overlay:popover-open) .page { pointer-events: none; interactivity: 
   </header>
   <main class="wide">
     <h1>Photography</h1>
-    <p>Space and shadows. One photo at a time. I also take <a href="/portraits/">portraits</a>.</p>
+    <p>One photo at a time. I also take <a href="/portraits/">portraits</a>.</p>
 
 <div class="photos"><figure>
     <a href="/assets/img/photos/works/2.jpg" style="--ratio: 1.4997">
@@ -252,8 +219,7 @@ body:has(#cv-overlay:popover-open) .page { pointer-events: none; interactivity: 
 <!-- Tempus fugit. -->
 
   </main>
-  <footer class="closing">
-    <img src="/assets/img/photos/works/3.jpg" srcset="/assets/img/photos/works/3-800.jpg 800w, /assets/img/photos/works/3-1600.jpg 1600w, /assets/img/photos/works/3.jpg 2560w" sizes="(max-aspect-ratio: 1/1) and (max-aspect-ratio: 2560/1828) calc(141vh - 218px), (max-aspect-ratio: 2560/1828) 141vh, 100vw" style="object-position: 47% 80%" alt="" loading="lazy" decoding="async">
+  <footer>
     <a class="top circle" href="#top">Top</a>
     <p>© 2026 Tristan Hoellinger</p>
   </footer>
@@ -261,7 +227,7 @@ body:has(#cv-overlay:popover-open) .page { pointer-events: none; interactivity: 
   <div id="cv-overlay" popover role="dialog" aria-labelledby="cv-overlay-title">
     <button class="close" type="button" popovertarget="cv-overlay" popovertargetaction="hide" aria-label="Close"></button>
     <h2 id="cv-overlay-title">Curriculum vitae</h2>
-    <p>Also as a <a href="/assets/pdf/tristan_hoellinger_cv.pdf">PDF</a>.</p>
+    <p>Click for <a href="/assets/pdf/tristan_hoellinger_cv.pdf">PDF</a>.</p>
 <div class="photos pdf" tabindex="-1" autofocus><figure>
     <a href="/assets/pdf/tristan_hoellinger_cv.pdf">
       <img src="/assets/pdf/tristan_hoellinger_cv-92b0d68fe2d8-1.svg" width="612" height="792" alt="Curriculum vitae, page 1 of 2" loading="lazy">
