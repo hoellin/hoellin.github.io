@@ -12,7 +12,8 @@
   <meta property="og:description" content="Postdoctoral Fellow in Cosmology at NASA Jet Propulsion Laboratory (Caltech).">
   <meta property="og:image" content="https://hoellin.github.io/assets/img/prof_pic.jpg">
   <meta property="og:url" content="https://hoellin.github.io/404.html">
-  <link rel="icon" href="/favicon.png">
+  <link rel="icon" href="/favicon.ico?v=2bc3c242" sizes="16x16 32x32 48x48">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=0a0ece72">
   <style>:root {
   --bg: #fff;
   --text: #1d1d1f;
@@ -89,6 +90,7 @@ a.plain { color: inherit; } /* in Markdown: [text](url){:.plain} */
 main { max-width: 42rem; margin: 0 auto; padding: 0 1rem; }
 main.wide { max-width: 64rem; }
 .wide > h1, .wide > p { text-align: center; }
+.wide > h1 { padding-left: 0.2em; } /* the letter-spacing after the last letter: centred */
 .wide > p { max-width: 42rem; margin-inline: auto; }
 main, .role { text-wrap: pretty; }
 h1, h2 { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.2em; }
@@ -158,7 +160,9 @@ footer p { margin: 1.5rem 0 0; }
 }
 html, body { overflow-x: clip; } /* the zoomed page must not widen the screen, a phone's included */
 html:has(#cv-overlay:popover-open) { overflow: hidden; }
-body:has(#cv-overlay:popover-open) .page { pointer-events: none; interactivity: inert; } /* a click beside the CV only closes it; keys stay in it */
+body:has(#cv-overlay:popover-open) { pointer-events: none; transition-delay: 0s; } /* a click beside the CV only closes it, */
+body { transition: pointer-events 0s 0.325s allow-discrete; } /* a tap's click included, which comes once the CV has closed */
+body:has(#cv-overlay:popover-open) .page { interactivity: inert; } /* keys stay in the CV (not yet in Safari) */
 @media screen and (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
     .page { transition: transform 0.325s ease-in-out 0.325s; animation: centre linear both; animation-timeline: view(); }
@@ -166,22 +170,22 @@ body:has(#cv-overlay:popover-open) .page { pointer-events: none; interactivity: 
   }
 }
 @keyframes centre { from { transform-origin: 50% -50vh; } to { transform-origin: 50% calc(100% + 50vh); } } /* the middle of the screen */
-#cv-overlay { box-sizing: border-box; flex-direction: column; width: min(100%, 66rem); height: 100%; margin: 0 auto; padding: 0 1rem 3rem; border: 0; overflow: hidden; color: #fff; background: none; opacity: 0; translate: 0 0.25rem; transition: opacity 0.325s ease-in-out, translate 0.325s ease-in-out, display 0.65s allow-discrete, overlay 0.65s allow-discrete; }
+#cv-overlay { box-sizing: border-box; flex-direction: column; pointer-events: auto; width: min(100%, 66rem); height: 100%; margin: 0 auto; padding: 0 1rem 3rem; border: 0; overflow: hidden; color: #fff; background: none; opacity: 0; translate: 0 0.25rem; transition: opacity 0.325s ease-in-out, translate 0.325s ease-in-out, display 0.65s allow-discrete, overlay 0.65s allow-discrete; }
 #cv-overlay:popover-open { display: flex; opacity: 1; translate: 0; transition-delay: 0.325s, 0.325s, 0s, 0s; }
-#cv-overlay::backdrop { background: rgb(0 0 0 / 0); backdrop-filter: blur(0); transition: background-color 0.325s ease-in-out 0.325s, backdrop-filter 0.325s ease-in-out 0.325s, display 0.65s allow-discrete, overlay 0.65s allow-discrete; }
-#cv-overlay:popover-open::backdrop { background: rgb(0 0 0 / 0.65); backdrop-filter: blur(0.2rem); transition-delay: 0s; }
+#cv-overlay::backdrop { background: rgb(0 0 0 / 0); -webkit-backdrop-filter: blur(0); backdrop-filter: blur(0); transition: background-color 0.325s ease-in-out 0.325s, -webkit-backdrop-filter 0.325s ease-in-out 0.325s, backdrop-filter 0.325s ease-in-out 0.325s, display 0.65s allow-discrete, overlay 0.65s allow-discrete; }
+#cv-overlay:popover-open::backdrop { background: rgb(0 0 0 / 0.65); -webkit-backdrop-filter: blur(0.2rem); backdrop-filter: blur(0.2rem); transition-delay: 0s; }
 @starting-style {
   #cv-overlay:popover-open { opacity: 0; translate: 0 0.25rem; }
-  #cv-overlay:popover-open::backdrop { background: rgb(0 0 0 / 0); backdrop-filter: blur(0); }
+  #cv-overlay:popover-open::backdrop { background: rgb(0 0 0 / 0); -webkit-backdrop-filter: blur(0); backdrop-filter: blur(0); }
 }
 @supports not (overlay: auto) { /* browsers that drop the CV from the top layer at once: close at once */
   #cv-overlay:not(:popover-open) { transition: none; }
   .page { transition-delay: 0s; }
 }
-#cv-overlay h2 { margin: 3rem 0 1rem; padding: 0; border: 0; color: inherit; text-align: center; }
+#cv-overlay h2 { margin: 3rem 0 1rem; padding: 0 0 0 0.2em; border: 0; color: inherit; text-align: center; }
 #cv-overlay > p { margin: 0 0 2rem; text-align: center; }
 #cv-overlay .pdf { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; outline: none; } /* only the sheets scroll; focused on opening, for the keys */
-#cv-overlay .pdf { flex: 0 1 auto; border: 7px solid rgb(255 255 255 / 0.5); border-radius: 12px; } /* cv_frame: the width and grey of the macOS scroll bar, hugging the sheets when they all fit */
+#cv-overlay .pdf { flex: 0 1 auto; aspect-ratio: 612 / 792; border: 7px solid rgb(255 255 255 / 0.5); border-radius: 12px; } /* cv_frame: the width and grey of the macOS scroll bar; where the screen has room, the frame ends with the first page */
 @media (pointer: coarse) {
   #cv-overlay .pdf { border-width: 3px; border-radius: 8px; } /* as a phone's scroll bar */
 }
@@ -203,7 +207,7 @@ body:has(#cv-overlay:popover-open) .page { pointer-events: none; interactivity: 
 <body id="top">
   <div class="page">
   <header class="hero">
-    <img class="bg" src="/assets/img/photos/hero/silhouette.jpg" srcset="/assets/img/photos/hero/silhouette-800.jpg 800w, /assets/img/photos/hero/silhouette-1600.jpg 1600w, /assets/img/photos/hero/silhouette.jpg 2560w" sizes="max(100vw, 54rem)" alt="" fetchpriority="high">
+    <img class="bg" src="/assets/img/photos/hero/silhouette.jpg" srcset="/assets/img/photos/hero/silhouette-800.jpg 800w, /assets/img/photos/hero/silhouette-1600.jpg 1600w, /assets/img/photos/hero/silhouette.jpg 2560w" sizes="(max-width: 864px) 54rem, 100vw" alt="" fetchpriority="high">
     <a class="name" href="/">Tristan Hoellinger</a>
     <nav><a href="/#about">about</a><a href="/#publications">publications</a><a href="/#talks">talks</a><button type="button" popovertarget="cv-overlay">cv</button><a class="cv-page" href="/cv/">cv</a><a href="/photography/">photo</a></nav>
   </header>
@@ -217,17 +221,17 @@ body:has(#cv-overlay:popover-open) .page { pointer-events: none; interactivity: 
     <p>© 2026 Tristan Hoellinger</p>
   </footer>
   </div>
-  <div id="cv-overlay" popover role="dialog" aria-labelledby="cv-overlay-title">
+  <div id="cv-overlay" popover role="dialog" aria-modal="true" aria-labelledby="cv-overlay-title">
     <button class="close" type="button" popovertarget="cv-overlay" popovertargetaction="hide" aria-label="Close"></button>
     <h2 id="cv-overlay-title">Curriculum vitae</h2>
     <p>Click for <a href="/assets/pdf/tristan_hoellinger_cv.pdf">PDF</a>.</p>
 <div class="photos pdf" tabindex="-1" autofocus><figure>
     <a href="/assets/pdf/tristan_hoellinger_cv.pdf">
-      <img src="/assets/pdf/tristan_hoellinger_cv-92b0d68fe2d8-1.svg" width="612" height="792" alt="Curriculum vitae, page 1 of 2" loading="lazy">
+      <img src="/assets/pdf/tristan_hoellinger_cv-70e2ab3d5a9f-1.svg" width="612" height="792" alt="Curriculum vitae, page 1 of 2" loading="lazy">
     </a>
   </figure><figure>
     <a href="/assets/pdf/tristan_hoellinger_cv.pdf">
-      <img src="/assets/pdf/tristan_hoellinger_cv-92b0d68fe2d8-2.svg" width="612" height="792" alt="Curriculum vitae, page 2 of 2" loading="lazy">
+      <img src="/assets/pdf/tristan_hoellinger_cv-70e2ab3d5a9f-2.svg" width="612" height="792" alt="Curriculum vitae, page 2 of 2" loading="lazy">
     </a>
   </figure></div>
 

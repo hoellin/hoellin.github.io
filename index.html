@@ -12,7 +12,8 @@
   <meta property="og:description" content="Postdoctoral Fellow in Cosmology at NASA Jet Propulsion Laboratory (Caltech).">
   <meta property="og:image" content="https://hoellin.github.io/assets/img/prof_pic.jpg">
   <meta property="og:url" content="https://hoellin.github.io/">
-  <link rel="icon" href="/favicon.png">
+  <link rel="icon" href="/favicon.ico?v=2bc3c242" sizes="16x16 32x32 48x48">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=0a0ece72">
   <style>:root {
   --bg: #fff;
   --text: #1d1d1f;
@@ -89,6 +90,7 @@ a.plain { color: inherit; } /* in Markdown: [text](url){:.plain} */
 main { max-width: 42rem; margin: 0 auto; padding: 0 1rem; }
 main.wide { max-width: 64rem; }
 .wide > h1, .wide > p { text-align: center; }
+.wide > h1 { padding-left: 0.2em; } /* the letter-spacing after the last letter: centred */
 .wide > p { max-width: 42rem; margin-inline: auto; }
 main, .role { text-wrap: pretty; }
 h1, h2 { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.2em; }
@@ -148,14 +150,27 @@ footer p { margin: 1.5rem 0 0; }
   .social a:hover { color: var(--text); }
   .top:hover { border-color: var(--muted); color: var(--text); }
 }
+/* The about item on computers (about_menu in _config.yml): the home page stops with its menu exactly where the banner of the other pages
+   holds it, below the banner's top padding, the name's line and the gap. The About heading opens the page 3.5rem below the hero, whose
+   bottom padding (10vh) lies under the menu (style.css). */
+@media (min-width: 701px) and (min-height: 501px) {
+  :root { --banner: calc(2.5rem + 1rem * 1.65 + 1.5rem); --menu: calc(0.75rem * 1.65 + 1.4rem + 1px); }
+  #about { scroll-margin-top: calc(3.5rem + 10vh + var(--menu) + var(--banner)); }
+  @supports (padding: round(1px, 1px)) and selector(:has(*)) {
+    /* The stop on a whole pixel and, once there, the padding within half a pixel of 10vh: the menu on the banner's very pixels. */
+    :root { --stop: round(100svh - 10vh - var(--menu) - var(--banner), 1px); }
+    #about { scroll-margin-top: calc(100svh + 3.5rem - var(--stop)); }
+    html:has(#about:target) .hero.full { padding-bottom: calc(100svh - var(--stop) - var(--menu) - var(--banner)); }
+  }
+}
 /* Photo bands (bands in _config.yml): strips of one photo between the sections. As on pmsutter.com, the photo moves behind a strip at
    a fifth of the scroll speed, so a strip crossing the screen shows a part of it 80vh + a fifth of the strip tall (--part). The photo is
    --parts parts tall; strip --index (from 0) shows the part below the previous strip's. A strip spans the page width: absolute, on the
    initial containing block. */
-.band { --strip: min(40vh, 60vw); --part: calc(80vh + var(--strip) / 5); --shift: calc(var(--index) * var(--part)); clear: both; height: var(--strip); margin: 3.5rem 0; }
-.band > div { position: absolute; left: 0; right: 0; height: var(--strip); overflow: clip; view-timeline: --band; }
+.band { --strip: max(min(40vh, 60vw), 5rem); --part: calc(80vh + var(--strip) / 5); --shift: calc(var(--index) * var(--part)); clear: both; height: var(--strip); margin: 3.5rem 0; } /* 5rem: room for the Top button, zoomed in */
+.band > div { position: absolute; left: 0; right: 0; height: var(--strip); overflow: hidden; overflow: clip; view-timeline: --band; background: #000; } /* hidden: for browsers without clip; black until the photo shows */
 .band img { display: block; width: 100%; height: calc(var(--parts) * var(--part)); object-fit: cover; translate: 0 calc(var(--strip) * 0.4 - 40vh - var(--shift)); } /* where it is when the strip is mid-screen; kept without motion */
-.band .top { position: absolute; top: 50%; left: 50%; translate: -50% -50%; border-color: rgb(255 255 255 / 0.7); color: #fff; background: rgb(0 0 0 / 0.45); backdrop-filter: blur(0.5rem); } /* legible on any part of the photo */
+.band .top { position: absolute; top: 50%; left: 50%; translate: -50% -50%; border-color: rgb(255 255 255 / 0.7); color: #fff; background: rgb(0 0 0 / 0.45); -webkit-backdrop-filter: blur(0.5rem); backdrop-filter: blur(0.5rem); } /* legible on any part of the photo */
 @media (hover: hover) {
   .band .top:hover { background: rgb(0 0 0 / 0.6); }
 }
@@ -180,7 +195,9 @@ footer p { margin: 1.5rem 0 0; }
 }
 html, body { overflow-x: clip; } /* the zoomed page must not widen the screen, a phone's included */
 html:has(#cv-overlay:popover-open) { overflow: hidden; }
-body:has(#cv-overlay:popover-open) .page { pointer-events: none; interactivity: inert; } /* a click beside the CV only closes it; keys stay in it */
+body:has(#cv-overlay:popover-open) { pointer-events: none; transition-delay: 0s; } /* a click beside the CV only closes it, */
+body { transition: pointer-events 0s 0.325s allow-discrete; } /* a tap's click included, which comes once the CV has closed */
+body:has(#cv-overlay:popover-open) .page { interactivity: inert; } /* keys stay in the CV (not yet in Safari) */
 @media screen and (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
     .page { transition: transform 0.325s ease-in-out 0.325s; animation: centre linear both; animation-timeline: view(); }
@@ -188,22 +205,22 @@ body:has(#cv-overlay:popover-open) .page { pointer-events: none; interactivity: 
   }
 }
 @keyframes centre { from { transform-origin: 50% -50vh; } to { transform-origin: 50% calc(100% + 50vh); } } /* the middle of the screen */
-#cv-overlay { box-sizing: border-box; flex-direction: column; width: min(100%, 66rem); height: 100%; margin: 0 auto; padding: 0 1rem 3rem; border: 0; overflow: hidden; color: #fff; background: none; opacity: 0; translate: 0 0.25rem; transition: opacity 0.325s ease-in-out, translate 0.325s ease-in-out, display 0.65s allow-discrete, overlay 0.65s allow-discrete; }
+#cv-overlay { box-sizing: border-box; flex-direction: column; pointer-events: auto; width: min(100%, 66rem); height: 100%; margin: 0 auto; padding: 0 1rem 3rem; border: 0; overflow: hidden; color: #fff; background: none; opacity: 0; translate: 0 0.25rem; transition: opacity 0.325s ease-in-out, translate 0.325s ease-in-out, display 0.65s allow-discrete, overlay 0.65s allow-discrete; }
 #cv-overlay:popover-open { display: flex; opacity: 1; translate: 0; transition-delay: 0.325s, 0.325s, 0s, 0s; }
-#cv-overlay::backdrop { background: rgb(0 0 0 / 0); backdrop-filter: blur(0); transition: background-color 0.325s ease-in-out 0.325s, backdrop-filter 0.325s ease-in-out 0.325s, display 0.65s allow-discrete, overlay 0.65s allow-discrete; }
-#cv-overlay:popover-open::backdrop { background: rgb(0 0 0 / 0.65); backdrop-filter: blur(0.2rem); transition-delay: 0s; }
+#cv-overlay::backdrop { background: rgb(0 0 0 / 0); -webkit-backdrop-filter: blur(0); backdrop-filter: blur(0); transition: background-color 0.325s ease-in-out 0.325s, -webkit-backdrop-filter 0.325s ease-in-out 0.325s, backdrop-filter 0.325s ease-in-out 0.325s, display 0.65s allow-discrete, overlay 0.65s allow-discrete; }
+#cv-overlay:popover-open::backdrop { background: rgb(0 0 0 / 0.65); -webkit-backdrop-filter: blur(0.2rem); backdrop-filter: blur(0.2rem); transition-delay: 0s; }
 @starting-style {
   #cv-overlay:popover-open { opacity: 0; translate: 0 0.25rem; }
-  #cv-overlay:popover-open::backdrop { background: rgb(0 0 0 / 0); backdrop-filter: blur(0); }
+  #cv-overlay:popover-open::backdrop { background: rgb(0 0 0 / 0); -webkit-backdrop-filter: blur(0); backdrop-filter: blur(0); }
 }
 @supports not (overlay: auto) { /* browsers that drop the CV from the top layer at once: close at once */
   #cv-overlay:not(:popover-open) { transition: none; }
   .page { transition-delay: 0s; }
 }
-#cv-overlay h2 { margin: 3rem 0 1rem; padding: 0; border: 0; color: inherit; text-align: center; }
+#cv-overlay h2 { margin: 3rem 0 1rem; padding: 0 0 0 0.2em; border: 0; color: inherit; text-align: center; }
 #cv-overlay > p { margin: 0 0 2rem; text-align: center; }
 #cv-overlay .pdf { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; outline: none; } /* only the sheets scroll; focused on opening, for the keys */
-#cv-overlay .pdf { flex: 0 1 auto; border: 7px solid rgb(255 255 255 / 0.5); border-radius: 12px; } /* cv_frame: the width and grey of the macOS scroll bar, hugging the sheets when they all fit */
+#cv-overlay .pdf { flex: 0 1 auto; aspect-ratio: 612 / 792; border: 7px solid rgb(255 255 255 / 0.5); border-radius: 12px; } /* cv_frame: the width and grey of the macOS scroll bar; where the screen has room, the frame ends with the first page */
 @media (pointer: coarse) {
   #cv-overlay .pdf { border-width: 3px; border-radius: 8px; } /* as a phone's scroll bar */
 }
@@ -229,7 +246,7 @@ body:has(#cv-overlay:popover-open) .page { pointer-events: none; interactivity: 
 <body id="top">
   <div class="page">
   <header class="hero full">
-    <img class="bg" src="/assets/img/photos/hero/silhouette.jpg" srcset="/assets/img/photos/hero/silhouette-800.jpg 800w, /assets/img/photos/hero/silhouette-1600.jpg 1600w, /assets/img/photos/hero/silhouette.jpg 2560w" sizes="(max-width: 480px) 240vh, (max-height: 500px) max(100vw, 240vh), max(100vw, 210vh)" alt="" fetchpriority="high">
+    <img class="bg" src="/assets/img/photos/hero/silhouette.jpg" srcset="/assets/img/photos/hero/silhouette-800.jpg 800w, /assets/img/photos/hero/silhouette-1600.jpg 1600w, /assets/img/photos/hero/silhouette.jpg 2560w" sizes="(max-width: 480px) 240vh, (max-height: 500px) and (max-aspect-ratio: 240/100) 240vh, (max-height: 500px) 100vw, (max-aspect-ratio: 210/100) 210vh, 100vw" alt="" fetchpriority="high">
     <div class="card">
       <h1 class="name">Tristan Hoellinger</h1>
       <p class="role" style="--role-size: 1">Postdoctoral Fellow in Cosmology<br>NASA Jet Propulsion Laboratory (Caltech)</p>
@@ -244,9 +261,9 @@ body:has(#cv-overlay:popover-open) .page { pointer-events: none; interactivity: 
   <address><span><a href="https://www.jpl.nasa.gov" target="_blank" rel="noopener">Jet Propulsion Laboratory</a></span><br /><span>California Institute of Technology</span><br /><span>4800 Oak Grove Drive</span><br /><span>Pasadena, CA 91109</span></address>
 </figure>
 
-<p>I am a postdoctoral Fellow in cosmology at <a href="https://www.jpl.nasa.gov" target="_blank" rel="noopener">NASA Jet Propulsion Laboratory</a> (<a href="https://www.caltech.edu" target="_blank" rel="noopener">Caltech</a>), where I work on accelerating science discovery with AI.</p>
+<p>I am a postdoctoral Fellow in cosmology at <a href="https://www.jpl.nasa.gov" target="_blank" rel="noopener">NASA Jet Propulsion Laboratory</a> (<a href="https://www.caltech.edu" target="_blank" rel="noopener">Caltech</a>), where I work on accelerating scientific discovery with AI.</p>
 
-<p>Besides dark energy, I enjoy chasing the unseen through <a href="/photography/">photography</a>.</p>
+<p>Besides chasing dark energy, I enjoy framing the unseen through <a href="/photography/">photography</a>.</p>
 
 <p class="links"><a href="https://orcid.org/0000-0003-0217-8542" target="_blank" rel="noopener">ORCID</a>&nbsp;· <a href="https://scholar.google.com/citations?user=K4UO2eEAAAAJ" target="_blank" rel="noopener">Google Scholar</a>&nbsp;· <a href="https://www.linkedin.com/in/tristan-hoellinger" target="_blank" rel="noopener">LinkedIn</a>&nbsp;· <a href="https://github.com/hoellin" target="_blank" rel="noopener">GitHub</a></p>
 
@@ -318,17 +335,17 @@ body:has(#cv-overlay:popover-open) .page { pointer-events: none; interactivity: 
     <p>© 2026 Tristan Hoellinger</p>
   </footer>
   </div>
-  <div id="cv-overlay" popover role="dialog" aria-labelledby="cv-overlay-title">
+  <div id="cv-overlay" popover role="dialog" aria-modal="true" aria-labelledby="cv-overlay-title">
     <button class="close" type="button" popovertarget="cv-overlay" popovertargetaction="hide" aria-label="Close"></button>
     <h2 id="cv-overlay-title">Curriculum vitae</h2>
     <p>Click for <a href="/assets/pdf/tristan_hoellinger_cv.pdf">PDF</a>.</p>
 <div class="photos pdf" tabindex="-1" autofocus><figure>
     <a href="/assets/pdf/tristan_hoellinger_cv.pdf">
-      <img src="/assets/pdf/tristan_hoellinger_cv-92b0d68fe2d8-1.svg" width="612" height="792" alt="Curriculum vitae, page 1 of 2" loading="lazy">
+      <img src="/assets/pdf/tristan_hoellinger_cv-70e2ab3d5a9f-1.svg" width="612" height="792" alt="Curriculum vitae, page 1 of 2" loading="lazy">
     </a>
   </figure><figure>
     <a href="/assets/pdf/tristan_hoellinger_cv.pdf">
-      <img src="/assets/pdf/tristan_hoellinger_cv-92b0d68fe2d8-2.svg" width="612" height="792" alt="Curriculum vitae, page 2 of 2" loading="lazy">
+      <img src="/assets/pdf/tristan_hoellinger_cv-70e2ab3d5a9f-2.svg" width="612" height="792" alt="Curriculum vitae, page 2 of 2" loading="lazy">
     </a>
   </figure></div>
 
